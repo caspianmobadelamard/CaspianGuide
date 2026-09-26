@@ -1,0 +1,441 @@
+/* ============================================
+   فونت فارسی
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+/* ============================================
+   متغیرهای رنگی نئونی
+   ============================================ */
+:root {
+  --md-text-font: "Vazirmatn", sans-serif;
+  --md-code-font: "Roboto Mono", monospace;
+
+  --cg-bg-main: #2b303b;
+  --cg-bg-card: #363b47;
+  --cg-bg-card-hover: #3e4553;
+  --cg-bg-elevated: #404857;
+  --cg-text-main: #e8eaed;
+  --cg-text-dim: #a8b0bd;
+  --cg-text-faint: #6c7689;
+
+  --neon-blue: #00d4ff;
+  --neon-turquoise: #00ffc8;
+  --neon-orange: #ff9100;
+  --neon-red: #ff2d55;
+  --neon-green: #00e676;
+  --neon-purple: #b388ff;
+  --neon-yellow: #ffea00;
+
+  --border-soft: rgba(255,255,255,0.08);
+  --border-glow: rgba(0,212,255,0.35);
+}
+
+/* ============================================
+   تم تیره — پس‌زمینه اصلی
+   ============================================ */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #2b303b;
+  --md-default-fg-color: #e8eaed;
+  --md-default-fg-color--light: #a8b0bd;
+  --md-default-fg-color--lighter: #6c7689;
+  --md-primary-fg-color: #00d4ff;
+  --md-accent-fg-color: #00ffc8;
+  --md-code-bg-color: #363b47;
+}
+
+[data-md-color-scheme="slate"] body {
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(0,212,255,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(179,136,255,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255,145,0,0.04) 0%, transparent 60%);
+}
+
+/* ============================================
+   راست‌چین
+   ============================================ */
+body, .md-content, .md-typeset {
+  direction: rtl;
+  text-align: right;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.md-typeset pre,
+.md-typeset code,
+code {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: embed;
+}
+
+/* ============================================
+   هدر
+   ============================================ */
+.md-header {
+  background: rgba(43,48,59,0.92) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.md-header__title {
+  font-weight: 700;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0,212,255,0.4);
+}
+
+.md-tabs {
+  background: rgba(43,48,59,0.85) !important;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--neon-blue) !important;
+}
+
+/* ============================================
+   جستجو
+   ============================================ */
+.md-search__input {
+  font-family: "Vazirmatn", sans-serif !important;
+  background: var(--cg-bg-card) !important;
+  border-radius: 10px !important;
+}
+
+.md-search__input:focus {
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.15) !important;
+}
+
+.md-search-result__meta {
+  background-color: var(--neon-blue) !important;
+  color: #1a1d24 !important;
+}
+
+/* ============================================
+   لینک‌ها
+   ============================================ */
+.md-typeset a {
+  color: var(--neon-blue);
+  transition: all 0.2s;
+}
+
+.md-typeset a:hover {
+  color: var(--neon-turquoise);
+  text-shadow: 0 0 8px rgba(0,255,200,0.5);
+}
+
+/* ============================================
+   تیترها
+   ============================================ */
+.md-typeset h1 {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-turquoise) 50%, var(--neon-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(0,212,255,0.3);
+  padding-bottom: 8px;
+}
+
+.md-typeset h2 {
+  color: var(--neon-turquoise);
+  border-right: 4px solid var(--neon-turquoise);
+  padding-right: 12px;
+  font-weight: 700;
+}
+
+.md-typeset h3 {
+  color: var(--neon-yellow);
+  font-weight: 600;
+}
+
+/* ============================================
+   جدول‌ها
+   ============================================ */
+.md-typeset table:not([class]) {
+  font-size: 0.85rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--cg-bg-card);
+}
+
+.md-typeset table:not([class]) th {
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,255,200,0.1)) !important;
+  color: var(--neon-blue) !important;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0,212,255,0.25) !important;
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: var(--cg-bg-card-hover);
+}
+
+/* ============================================
+   کارت‌های محصول
+   ============================================ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.product-card {
+  background: var(--cg-bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 24px 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-turquoise));
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  background: var(--cg-bg-card-hover);
+  border-color: var(--neon-blue);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 25px rgba(0,212,255,0.4);
+}
+
+.product-card h3 {
+  color: var(--neon-turquoise);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  color: var(--cg-text-dim);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.product-card a {
+  color: var(--neon-blue);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ============================================
+   ماشین‌حساب
+   ============================================ */
+.calculator {
+  background: var(--cg-bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0;
+  direction: rtl;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-turquoise), var(--neon-blue));
+  box-shadow: 0 0 15px var(--neon-turquoise);
+}
+
+.calculator label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+  color: var(--cg-text-main);
+  font-size: 14px;
+}
+
+.calculator label span {
+  color: var(--neon-blue);
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.calculator input,
+.calculator select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--cg-bg-elevated);
+  color: var(--cg-text-main);
+  direction: ltr;
+  text-align: left;
+  transition: all 0.25s;
+}
+
+.calculator input:focus,
+.calculator select:focus {
+  outline: none;
+  border-color: var(--neon-turquoise);
+  box-shadow: 0 0 0 3px rgba(0,255,200,0.15);
+}
+
+.calculator button {
+  background: linear-gradient(135deg, var(--neon-turquoise), var(--neon-blue));
+  color: #1a1d24;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 12px;
+  transition: all 0.25s;
+  box-shadow: 0 0 20px rgba(0,255,200,0.35);
+}
+
+.calculator button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0,255,200,0.6);
+}
+
+.calc-formula {
+  font-family: 'Courier New', monospace;
+  background: rgba(0,255,200,0.08);
+  border: 1px dashed rgba(0,255,200,0.3);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--neon-turquoise);
+  font-size: 14px;
+  direction: ltr;
+  text-align: left;
+  margin: 16px 0;
+}
+
+.calc-result {
+  margin-top: 18px;
+  padding: 18px;
+  background: rgba(0,230,118,0.08);
+  border: 1px solid rgba(0,230,118,0.3);
+  border-right: 4px solid var(--neon-green);
+  border-radius: 10px;
+  display: none;
+}
+
+.calc-result.show {
+  display: block;
+  animation: fadeIn 0.4s;
+}
+
+.calc-result p {
+  margin: 8px 0;
+  color: var(--cg-text-main);
+}
+
+.calc-result strong {
+  color: var(--neon-green);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   SVG
+   ============================================ */
+.md-typeset svg {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  background: var(--cg-bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* ============================================
+   هشدارها (Admonition)
+   ============================================ */
+.md-typeset .admonition {
+  font-size: 0.9rem;
+  border-radius: 10px;
+  border-right: 4px solid var(--neon-blue);
+  background: var(--cg-bg-card);
+}
+
+.md-typeset .admonition.warning {
+  border-right-color: var(--neon-orange);
+}
+
+.md-typeset .admonition.danger {
+  border-right-color: var(--neon-red);
+}
+
+.md-typeset .admonition.success {
+  border-right-color: var(--neon-green);
+}
+
+.md-typeset .admonition-title {
+  background: transparent !important;
+  font-weight: 700;
+}
+
+/* ============================================
+   تگ‌ها
+   ============================================ */
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--cg-bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--cg-text-dim);
+  margin: 4px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.tag:hover {
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0,212,255,0.4);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   فوتر
+   ============================================ */
+.md-footer {
+  background: rgba(43,48,59,0.95) !important;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* ============================================
+   موبایل
+   ============================================ */
+@media screen and (max-width: 76.1875em) {
+  .calculator { padding: 16px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .md-typeset h1 { font-size: 1.8rem; }
+}
+
+/* ============================================
+   چاپ
+   ============================================ */
+@media print {
+  .md-header, .md-sidebar, .md-footer, .calculator button {
+    display: none !important;
+  }
+  .calculator { border: 1px solid #000; }
+}

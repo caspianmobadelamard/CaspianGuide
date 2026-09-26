@@ -1,0 +1,139 @@
+site_name: راهنمای کاسپین مبدل آمارد
+site_description: مرجع فنی، فروش و آموزشی دیگ‌های پوسته‌ای و مخازن تحت فشار
+site_author: Caspian Mobadel Amard
+site_url: https://caspianmobadelamard.github.io/CaspianGuide/
+repo_url: https://github.com/caspianmobadelamard/CaspianGuide
+repo_name: CaspianGuide
+
+theme:
+  name: material
+  language: fa
+  direction: rtl
+  palette:
+    scheme: default
+    primary: cyan
+    accent: cyan
+  font:
+    text: Vazirmatn
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    logo: material/water-boiler
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/calculator.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://www.caspianboiler.ir
+      name: وب‌سایت کاسپین
+    - icon: fontawesome/solid/phone
+      link: tel:+981143115722
+      name: تماس
+
+nav:
+  - خانه: index.md
+  - 💼 فروش:
+    - معرفی محصولات: sales/products-overview.md
+  - ⚙️ فنی و مهندسی:
+    - استانداردها:
+      - INSO 22156 / EN 12953: engineering/standards/inso-22156-en-12953.md
+    - متریال:
+      - ورق آلیاژی: engineering/materials/alloy-plates.md
+      - ورق ریزدانه: engineering/materials/fine-grain-plates.md
+      - ورق زنگ‌نزن: engineering/materials/stainless-plates.md
+      - لوله بدون درز: engineering/materials/seamless-tubes.md
+      - لوله جوشی: engineering/materials/welded-tubes.md
+      - فلنج و فیتینگ: engineering/materials/flanges-fittings.md
+      - پیچ و مهره: engineering/materials/bolting.md
+      - P-Number و Group: engineering/materials/p-numbers.md
+      - چقرمگی و MDMT: engineering/materials/toughness-mdmt.md
+      - معادل‌های ASME: engineering/materials/asme-equivalents.md
+    - محاسبات:
+      - ماشین‌حساب جامع: engineering/calculations/calculator.md
+      - ضخامت پوسته: engineering/calculations/shell-thickness.md
+      - ضخامت کوره: engineering/calculations/furnace-thickness.md
+      - ضخامت کلگی: engineering/calculations/head-thickness.md
+      - قطر پوسته و کوره: engineering/calculations/diameter.md
+      - حد خوردگی: engineering/calculations/corrosion.md
+      - سطح حرارتی: engineering/calculations/heating-surface.md
+      - فشار طراحی: engineering/calculations/design-pressure.md
+      - فشار تست: engineering/calculations/test-pressure.md
+    - مخازن تحت فشار:
+      - استانداردهای طراحی: engineering/vessels/design-standards.md
+      - ضخامت پوسته: engineering/vessels/shell-thickness.md
+      - طراحی کلگی: engineering/vessels/head-design.md
+      - تقویت نازل: engineering/vessels/nozzle-reinforcement.md
+      - طراحی فلنج: engineering/vessels/flange-design.md
+      - انتخاب متریال: engineering/vessels/material-selection.md
+      - PWHT: engineering/vessels/pwht.md
+      - تست هیدرواستاتیک: engineering/vessels/hydrostatic-test.md
+      - حد خوردگی: engineering/vessels/corrosion-allowance.md
+      - ASME VIII Div.1: engineering/vessels/asme-viii-div1.md
+      - ASME VIII Div.2: engineering/vessels/asme-viii-div2.md
+    - جوشکاری:
+      - مبانی جوش: engineering/welding/welding-basics.md
+      - زوایای جوش: engineering/welding/welding-angles.md
+      - لوله به صفحه: engineering/welding/tube-to-tubesheet.md
+      - WPS/PQR/WPQ: engineering/welding/wps-pqr.md
+      - نمادهای جوش: engineering/welding/welding-symbols.md
+      - PWHT جوش: engineering/welding/pwht-welding.md
+    - NDT:
+      - روش‌های NDT: engineering/ndt/ndt-methods.md
+      - معیارهای پذیرش: engineering/ndt/acceptance-criteria.md
+      - صلاحیت پرسنل: engineering/ndt/personnel-qualification.md
+    - تجهیزات جانبی:
+      - منبع اسپیرال: engineering/equipment/spiral-tank.md
+      - مبدل کویل مسی: engineering/equipment/copper-coil.md
+      - منبع کوئلی: engineering/equipment/coil-tank.md
+      - مخزن کندانس: engineering/equipment/condensate-tank.md
+      - سختی‌گیر: engineering/equipment/softener.md
+      - فیلتر شنی: engineering/equipment/sand-filter.md
+      - دی‌اریتور: engineering/equipment/deaerator.md
+  - 🎓 دانشجویان:
+    - مبانی: students/basics.md
+    - واژه‌نامه: students/glossary.md
+    - مسیر یادگیری: students/learning-path.md
+    - سوالات متداول: students/faq.md
+  - 📚 مراجع:
+    - تعاریف: common/definitions.md
+    - واحدها: common/units.md
+    - مراجع: common/references.md

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# MkDocs
+site/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Standalone PDFs (copyright)
+*.pdf
+!docs/assets/*.pdf
+
+# Secrets
+.env
+.env.local
+*.key
