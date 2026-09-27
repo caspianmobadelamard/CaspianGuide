@@ -62,6 +62,7 @@ markdown_extensions:
 
 extra:
   generator: false
+  manifest: manifest.webmanifest
   social:
     - icon: fontawesome/solid/globe
       link: https://www.caspianboiler.ir
@@ -81,8 +82,9 @@ nav:
     - متن نمایشگاه: sales/exhibition-scripts.md
     - پاسخ به اعتراض: sales/objection-handling.md
     - سوالات پرتکرار: sales/faq-sales.md
-    - دیگ‌های بخار:
-      - دیگ بخار: sales/boilers/steam-boilers.md
+    - دیگ‌ها:
+      - دیگ بخار افقی: sales/boilers/steam-boilers.md
+      - دیگ بخار عمودی: sales/boilers/vertical-steam-boilers.md
       - دیگ آبگرم و آب داغ: sales/boilers/hot-water-boilers.md
       - دیگ روغن داغ: sales/boilers/hot-oil-boilers.md
       - مقایسه مدل‌ها: sales/boilers/models-comparison.md
@@ -91,6 +93,8 @@ nav:
     - استانداردها:
       - INSO 22156 / EN 12953: engineering/standards/inso-22156-en-12953.md
       - BS 855 / ISIRI 7911: engineering/standards/bs-855-isiri-7911.md
+      - ISO 3834 (جوشکاری): engineering/standards/iso-3834.md
+      - گواهی‌نامه‌ها: engineering/standards/certificates.md
     - واژه‌نامه فنی:
       - قطعات و تجهیزات: engineering/glossary/components.md
     - متریال:

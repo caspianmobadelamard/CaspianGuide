@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1d28;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff2d95;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff9500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffea00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boilerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b14cff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- پس‌زمینه -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+
+  <!-- حلقه نئونی -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#boilerGrad)" stroke-width="4" opacity="0.3" filter="url(#glow)"/>
+
+  <!-- بدنه دیگ (استوانه) -->
+  <rect x="146" y="200" width="220" height="180" rx="20" fill="none" stroke="url(#boilerGrad)" stroke-width="8" filter="url(#glow)"/>
+
+  <!-- خطوط بدنه (کانال‌های حرارتی) -->
+  <line x1="176" y1="240" x2="336" y2="240" stroke="#00e5ff" stroke-width="4" opacity="0.6"/>
+  <line x1="176" y1="280" x2="336" y2="280" stroke="#00e5ff" stroke-width="4" opacity="0.6"/>
+  <line x1="176" y1="320" x2="336" y2="320" stroke="#00e5ff" stroke-width="4" opacity="0.6"/>
+
+  <!-- شعله (نماد مشعل) -->
+  <path d="M 256 100
+           C 230 130, 220 160, 240 185
+           C 220 180, 210 160, 215 140
+           C 195 170, 200 210, 230 225
+           C 240 230, 250 230, 256 230
+           C 262 230, 272 230, 282 225
+           C 312 210, 317 170, 297 140
+           C 302 160, 292 180, 272 185
+           C 292 160, 282 130, 256 100 Z"
+        fill="url(#flameGrad)"
+        filter="url(#glow)"/>
+
+  <!-- دود / بخار -->
+  <circle cx="230" cy="180" r="4" fill="#00e5ff" opacity="0.5"/>
+  <circle cx="256" cy="170" r="5" fill="#00e5ff" opacity="0.7"/>
+  <circle cx="282" cy="180" r="4" fill="#00e5ff" opacity="0.5"/>
+
+  <!-- پایه -->
+  <rect x="200" y="380" width="112" height="20" rx="4" fill="url(#boilerGrad)" filter="url(#glow)"/>
+
+  <!-- حروف CMA -->
+  <text x="256" y="450"
+        text-anchor="middle"
+        font-family="Vazirmatn, Arial, sans-serif"
+        font-size="52"
+        font-weight="900"
+        fill="url(#boilerGrad)"
+        filter="url(#glow)"
+        letter-spacing="8">CMA</text>
+</svg>
