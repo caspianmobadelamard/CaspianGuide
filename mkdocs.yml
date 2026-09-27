@@ -74,7 +74,7 @@ nav:
 
   - 💼 فروش:
     - معرفی محصولات: sales/products-overview.md
-    - استانداردها برای فروش: sales/standards-sales.md
+    - استانداردها: sales/standards-sales.md
     - لوازم و تجهیزات: sales/accessories-sales.md
     - متن نمایشگاه: sales/exhibition-scripts.md
     - پاسخ به اعتراض: sales/objection-handling.md
@@ -92,8 +92,6 @@ nav:
     - متریال:
       - ورق‌ها: engineering/materials/plates.md
       - لوله‌ها: engineering/materials/tubes.md
-      - آهنگری‌ها: engineering/materials/forgings.md
-      - ریختگی‌ها: engineering/materials/castings.md
       - پیچ و مهره: engineering/materials/bolting.md
       - مواد مصرفی جوش: engineering/materials/welding-consumables.md
       - راهنمای انتخاب: engineering/materials/selection-guide.md
@@ -112,24 +110,21 @@ nav:
       - طراحی کلگی: engineering/vessels/head-design.md
       - تقویت نازل: engineering/vessels/nozzle-reinforcement.md
       - طراحی فلنج: engineering/vessels/flange-design.md
-      - انتخاب متریال: engineering/vessels/material-selection.md
       - PWHT: engineering/vessels/pwht.md
       - تست هیدرواستاتیک: engineering/vessels/hydrostatic-test.md
       - حد خوردگی: engineering/vessels/corrosion-allowance.md
       - ASME VIII Div.1: engineering/vessels/asme-viii-div1.md
       - ASME VIII Div.2: engineering/vessels/asme-viii-div2.md
-      - ASME VIII ترجمه: engineering/vessels/asme-viii-translated.md
     - جوشکاری:
       - مبانی جوش: engineering/welding/welding-basics.md
+      - فرایندهای جوش: engineering/welding/welding-processes.md
       - زوایای جوش: engineering/welding/welding-angles.md
-      - زوایای جوش (قدیم): engineering/welding/weld-angles.md
       - لوله به صفحه: engineering/welding/tube-to-tubesheet.md
       - WPS/PQR/WPQ: engineering/welding/wps-pqr.md
       - نمادهای جوش: engineering/welding/welding-symbols.md
       - PWHT جوش: engineering/welding/pwht-welding.md
     - NDT:
       - روش‌های NDT: engineering/ndt/ndt-methods.md
-      - روش‌های NDT (قدیم): engineering/ndt/methods.md
       - معیارهای پذیرش: engineering/ndt/acceptance-criteria.md
       - صلاحیت پرسنل: engineering/ndt/personnel-qualification.md
     - تجهیزات جانبی:

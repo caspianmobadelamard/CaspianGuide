@@ -1,5 +1,6 @@
 /* ============================================
    ماشین‌حساب مهندسی کاسپین مبدل آمارد
+   نسخه اصلاح‌شده — رفع باگ‌های بحرانی
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -65,7 +66,8 @@ function calcShellASME() {
 }
 
 /* --------------------------------------------
-   ۳. ضخامت کوره (تقریبی)
+   ۳. ضخامت کوره (نسخه اصلاح‌شده)
+   اعمال ضریب انحراف از گردی (u)
    EN 12953-3 Section 13
    -------------------------------------------- */
 function calcFurnace() {
@@ -77,13 +79,18 @@ function calcFurnace() {
 
   if (!P || !d || !L || !f) return alert('لطفاً همه فیلدها را پر کنید');
 
-  const S1 = 1.5;
   const P_mpa = P * 0.1;
-  const e_cf = (P_mpa * d * S1) / (2 * f * (1 + 0.1 * d / L));
+  const S1 = 1.5;
+
+  // ضریب اصلاح انحراف از گردی (u بر حسب درصد)
+  const k_u = 1 + (u / 100) * 2;
+
+  const e_cf = (P_mpa * d * S1 * k_u) / (2 * f * (1 + 0.1 * d / L));
 
   const result = document.getElementById('fur-result');
   result.innerHTML = `
     <p><strong>ضخامت کوره (e_cf):</strong> ${e_cf.toFixed(2)} mm</p>
+    <p><strong>ضریب انحراف از گردی (k_u):</strong> ${k_u.toFixed(3)}</p>
     <p><strong>ضخامت پیشنهادی:</strong> ${Math.ceil(e_cf)} mm</p>
     <hr>
     <p><small>⚠️ محاسبه تقریبی — برای دقت بیشتر به EN 12953-3 بخش ۱۳ مراجعه کنید.</small></p>
@@ -92,8 +99,8 @@ function calcFurnace() {
 }
 
 /* --------------------------------------------
-   ۴. قطر داخلی پوسته
-   d_is = d_os − 2 × (e_s − c₁ − c₂)
+   ۴. قطر داخلی پوسته (نسخه اصلاح‌شده)
+   d_is = d_os − 2 × e_s
    -------------------------------------------- */
 function calcDiameter() {
   const dos = parseFloat(document.getElementById('dia-dos').value);
@@ -103,15 +110,17 @@ function calcDiameter() {
 
   if (!dos || !es) return alert('لطفاً همه فیلدها را پر کنید');
 
-  const dis = dos - 2 * (es - c1 - c2);
+  const dis = dos - 2 * es;
   const dm = (dos + dis) / 2;
+  const dis_min = dos - 2 * (es - c1 - c2);
 
   const result = document.getElementById('dia-result');
   result.innerHTML = `
     <p><strong>قطر داخلی (d_is):</strong> ${dis.toFixed(2)} mm</p>
     <p><strong>قطر متوسط (d_m):</strong> ${dm.toFixed(2)} mm</p>
+    <p><strong>قطر داخلی در پایان عمر:</strong> ${dis_min.toFixed(2)} mm</p>
     <hr>
-    <p><small>فرمول: d_is = d_os − 2 × (e_s − c₁ − c₂)</small></p>
+    <p><small>فرمول: d_is = d_os − 2 × e_s</small></p>
   `;
   result.classList.add('show');
 }
@@ -168,8 +177,9 @@ function calcHeat() {
 }
 
 /* --------------------------------------------
-   ۷. فشار طراحی
+   ۷. فشار طراحی (نسخه اصلاح‌شده)
    P_c = P_S + P_h
+   P_h (bar) = h (mmH₂O) × 0.0000981
    -------------------------------------------- */
 function calcDesignPressure() {
   const Ps = parseFloat(document.getElementById('dp-ps').value);
@@ -177,14 +187,14 @@ function calcDesignPressure() {
 
   if (!Ps) return alert('لطفاً فشار مجاز را وارد کنید');
 
-  const Ph = h * 0.0981 / 10; // mm water → bar (تقریبی)
+  const Ph = h * 0.0000981; // mmH₂O → bar (اصلاح‌شده)
   const Pc = Ps + Ph;
   const negligible = Ph < 0.03 * Ps;
 
   const result = document.getElementById('dp-result');
   result.innerHTML = `
-    <p><strong>فشار ستون آب (P_h):</strong> ${Ph.toFixed(4)} bar</p>
-    <p><strong>فشار طراحی (P_c):</strong> ${Pc.toFixed(4)} bar</p>
+    <p><strong>فشار ستون آب (P_h):</strong> ${Ph.toFixed(5)} bar</p>
+    <p><strong>فشار طراحی (P_c):</strong> ${Pc.toFixed(3)} bar</p>
     ${negligible ? '<p style="color: var(--neon-green);">✓ فشار ستون آب ناچیز است (کمتر از ۳٪)</p>' : ''}
     <hr>
     <p><small>فرمول: P_c = P_S + P_h</small></p>
@@ -193,22 +203,26 @@ function calcDesignPressure() {
 }
 
 /* --------------------------------------------
-   ۸. فشار تست هیدرواستاتیک
-   P_test = 1.5 × P_design
+   ۸. فشار تست هیدرواستاتیک (نسخه اصلاح‌شده)
+   INSO 22156-5: P_test = 1.43 × P_s
+   ASME VIII Div.1: P_test = 1.3 × MAWP
    -------------------------------------------- */
 function calcTestPressure() {
   const Pd = parseFloat(document.getElementById('tp-pd').value);
+  const methodEl = document.getElementById('tp-method');
+  const method = methodEl ? methodEl.value : 'inso';
 
   if (!Pd) return alert('لطفاً فشار طراحی را وارد کنید');
 
-  const Ptest = 1.5 * Pd;
+  const Ptest = method === 'asme' ? 1.3 * Pd : 1.43 * Pd;
 
   const result = document.getElementById('tp-result');
   result.innerHTML = `
     <p><strong>فشار طراحی:</strong> ${Pd} bar</p>
+    <p><strong>روش:</strong> ${method === 'asme' ? 'ASME VIII Div.1' : 'INSO 22156-5'}</p>
     <p><strong>فشار تست هیدرواستاتیک:</strong> ${Ptest.toFixed(2)} bar</p>
     <hr>
-    <p><small>فرمول: P_test = 1.5 × P_design</small></p>
+    <p><small>فرمول: ${method === 'asme' ? 'P_test = 1.3 × MAWP' : 'P_test = 1.43 × P_s'}</small></p>
   `;
   result.classList.add('show');
 }

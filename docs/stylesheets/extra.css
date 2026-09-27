@@ -4,149 +4,287 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================
-   متغیرهای رنگی نئونی
+   متغیرهای رنگی نئونی جدید
    ============================================ */
 :root {
   --md-text-font: "Vazirmatn", sans-serif;
   --md-code-font: "Roboto Mono", monospace;
 
-  --cg-bg-main: #2b303b;
-  --cg-bg-card: #363b47;
-  --cg-bg-card-hover: #3e4553;
-  --cg-bg-elevated: #404857;
+  --cg-bg-main: #0f1117;
+  --cg-bg-card: #1a1d28;
+  --cg-bg-card-hover: #232735;
+  --cg-bg-elevated: #2a2f3f;
   --cg-text-main: #e8eaed;
   --cg-text-dim: #a8b0bd;
   --cg-text-faint: #6c7689;
 
-  --neon-blue: #00d4ff;
-  --neon-turquoise: #00ffc8;
-  --neon-orange: #ff9100;
-  --neon-red: #ff2d55;
-  --neon-green: #00e676;
-  --neon-purple: #b388ff;
+  --neon-cyan: #00e5ff;
+  --neon-purple: #b14cff;
+  --neon-pink: #ff2d95;
+  --neon-green: #00ff9d;
+  --neon-orange: #ff9500;
   --neon-yellow: #ffea00;
 
   --border-soft: rgba(255,255,255,0.08);
-  --border-glow: rgba(0,212,255,0.35);
-}
+  --border-glow: rgba(0,229,255,0.35);
 
-/* ============================================
-   تم تیره — پس‌زمینه اصلی
-   ============================================ */
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color: #2b303b;
+  /* Override Material variables */
+  --md-default-bg-color: #0f1117;
   --md-default-fg-color: #e8eaed;
   --md-default-fg-color--light: #a8b0bd;
   --md-default-fg-color--lighter: #6c7689;
-  --md-primary-fg-color: #00d4ff;
-  --md-accent-fg-color: #00ffc8;
-  --md-code-bg-color: #363b47;
-}
-
-[data-md-color-scheme="slate"] body {
-  background-image:
-    radial-gradient(circle at 15% 10%, rgba(0,212,255,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 90%, rgba(179,136,255,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255,145,0,0.04) 0%, transparent 60%);
+  --md-primary-fg-color: #00e5ff;
+  --md-primary-fg-color--dark: #00b8cc;
+  --md-accent-fg-color: #00ff9d;
+  --md-code-bg-color: #1a1d28;
+  --md-typeset-color: #e8eaed;
+  --md-typeset-a-color: #00e5ff;
 }
 
 /* ============================================
-   راست‌چین
+   پس‌زمینه با گرادیانت‌های نئونی
    ============================================ */
-body, .md-content, .md-typeset {
-  direction: rtl;
-  text-align: right;
-  font-family: "Vazirmatn", sans-serif;
-}
-
-.md-typeset pre,
-.md-typeset code,
-code {
-  direction: ltr;
-  text-align: left;
-  unicode-bidi: embed;
+body {
+  background-color: #0f1117;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(0,229,255,0.10) 0%, transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(177,76,255,0.10) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255,45,149,0.04) 0%, transparent 60%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 /* ============================================
-   هدر
+   هدر اصلی با blur
    ============================================ */
 .md-header {
-  background: rgba(43,48,59,0.92) !important;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+  background: rgba(15,17,23,0.85) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important;
   border-bottom: 1px solid var(--border-soft);
 }
 
 .md-header__title {
-  font-weight: 700;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px rgba(0,212,255,0.4);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.md-tabs {
-  background: rgba(43,48,59,0.85) !important;
-  border-bottom: 1px solid var(--border-soft);
-}
-
-.md-tabs__link--active,
-.md-tabs__link:hover {
-  color: var(--neon-blue) !important;
+.md-header__button.md-logo svg,
+.md-header__button.md-logo img {
+  filter: drop-shadow(0 0 8px rgba(0,229,255,0.6));
 }
 
 /* ============================================
-   جستجو
+   تب‌های اصلی با نشانگر نئونی
    ============================================ */
-.md-search__input {
-  font-family: "Vazirmatn", sans-serif !important;
-  background: var(--cg-bg-card) !important;
-  border-radius: 10px !important;
+.md-tabs {
+  background: rgba(15,17,23,0.85) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.md-search__input:focus {
-  box-shadow: 0 0 0 3px rgba(0,212,255,0.15) !important;
+.md-tabs__link {
+  color: var(--cg-text-dim) !important;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  opacity: 1 !important;
 }
 
-.md-search-result__meta {
-  background-color: var(--neon-blue) !important;
-  color: #1a1d24 !important;
+.md-tabs__link:hover {
+  color: var(--neon-cyan) !important;
+  text-shadow: 0 0 15px rgba(0,229,255,0.6);
+}
+
+.md-tabs__link--active {
+  color: var(--neon-cyan) !important;
+  font-weight: 700;
+}
+
+.md-tabs__link--active::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 12px var(--neon-cyan), 0 0 6px var(--neon-cyan);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.md-tabs__item--active {
+  background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(177,76,255,0.08));
+  border-radius: 8px;
+}
+
+/* ============================================
+   سایدبار (منوی کناری) — با نشانگر انتخاب
+   ============================================ */
+.md-nav {
+  font-size: 0.85rem;
+}
+
+.md-nav__title {
+  background: transparent !important;
+  color: var(--neon-cyan) !important;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: none !important;
+}
+
+.md-nav__item {
+  margin: 2px 0;
+}
+
+.md-nav__link {
+  border-radius: 8px;
+  padding: 6px 10px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  color: var(--cg-text-dim) !important;
+}
+
+.md-nav__link:hover {
+  background: rgba(0,229,255,0.06);
+  color: var(--neon-cyan) !important;
+  padding-right: 14px !important;
+}
+
+.md-nav__link:hover::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 2px;
+  background: var(--neon-cyan);
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* ⭐ نشانگر آیتم فعال — با آیکون ✓ */
+.md-nav__link--active {
+  background: linear-gradient(135deg, rgba(0,229,255,0.12), rgba(177,76,255,0.12)) !important;
+  color: var(--neon-green) !important;
+  font-weight: 700;
+  border-right: 3px solid var(--neon-green);
+  box-shadow:
+    0 0 15px rgba(0,255,157,0.15),
+    inset 0 0 15px rgba(0,255,157,0.05);
+}
+
+.md-nav__link--active::after {
+  content: '✓';
+  position: absolute;
+  left: 8px;
+  color: var(--neon-green);
+  font-weight: 900;
+  font-size: 12px;
+  text-shadow: 0 0 10px var(--neon-green);
+  animation: checkPop 0.4s ease-out;
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0) rotate(-90deg); opacity: 0; }
+  60% { transform: scale(1.3) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* آیکون برای آیتم‌های دارای زیرمنو */
+.md-nav__icon {
+  transition: transform 0.3s ease;
+}
+
+.md-nav__item--nested:hover > .md-nav__link .md-nav__icon {
+  transform: rotate(90deg);
+  color: var(--neon-cyan);
+}
+
+/* ============================================
+   محتوای اصلی
+   ============================================ */
+.md-content {
+  background: transparent;
+}
+
+/* ============================================
+   تیترها با گرادیانت متحرک
+   ============================================ */
+.md-typeset h1 {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 50%, var(--neon-pink) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(0,229,255,0.25);
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.md-typeset h1::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), transparent);
+  box-shadow: 0 0 12px var(--neon-cyan);
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.md-typeset h2 {
+  color: var(--neon-green);
+  border-right: 4px solid var(--neon-green);
+  padding-right: 14px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(0,255,157,0.3);
+}
+
+.md-typeset h3 {
+  color: var(--neon-yellow);
+  font-weight: 600;
+  text-shadow: 0 0 15px rgba(255,234,0,0.2);
+}
+
+.md-typeset h4 {
+  color: var(--neon-orange);
+  font-weight: 600;
 }
 
 /* ============================================
    لینک‌ها
    ============================================ */
 .md-typeset a {
-  color: var(--neon-blue);
+  color: var(--neon-cyan);
   transition: all 0.2s;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
 
 .md-typeset a:hover {
-  color: var(--neon-turquoise);
-  text-shadow: 0 0 8px rgba(0,255,200,0.5);
-}
-
-/* ============================================
-   تیترها
-   ============================================ */
-.md-typeset h1 {
-  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-turquoise) 50%, var(--neon-purple) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 800;
-  border-bottom: 2px solid rgba(0,212,255,0.3);
-  padding-bottom: 8px;
-}
-
-.md-typeset h2 {
-  color: var(--neon-turquoise);
-  border-right: 4px solid var(--neon-turquoise);
-  padding-right: 12px;
-  font-weight: 700;
-}
-
-.md-typeset h3 {
-  color: var(--neon-yellow);
-  font-weight: 600;
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(0,255,157,0.5);
+  border-bottom-color: var(--neon-green);
 }
 
 /* ============================================
@@ -155,24 +293,41 @@ code {
 .md-typeset table:not([class]) {
   font-size: 0.85rem;
   border: 1px solid var(--border-soft);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   background: var(--cg-bg-card);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+
+.md-typeset table:not([class]):hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 25px rgba(0,229,255,0.1);
 }
 
 .md-typeset table:not([class]) th {
-  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,255,200,0.1)) !important;
-  color: var(--neon-blue) !important;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(0,212,255,0.25) !important;
+  background: linear-gradient(135deg, rgba(0,229,255,0.18), rgba(177,76,255,0.12)) !important;
+  color: var(--neon-cyan) !important;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0,229,255,0.25) !important;
+  text-shadow: 0 0 8px rgba(0,229,255,0.3);
+}
+
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid var(--border-soft) !important;
+  transition: background 0.2s;
 }
 
 .md-typeset table:not([class]) tr:hover td {
   background: var(--cg-bg-card-hover);
 }
 
+.md-typeset table:not([class]) tr:hover td:first-child {
+  color: var(--neon-green);
+  font-weight: 600;
+}
+
 /* ============================================
-   کارت‌های محصول
+   کارت‌های محصول (product-grid)
    ============================================ */
 .product-grid {
   display: grid;
@@ -186,9 +341,10 @@ code {
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 24px 20px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  animation: fadeInUp 0.6s ease backwards;
 }
 
 .product-card::before {
@@ -196,35 +352,73 @@ code {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-turquoise));
-  box-shadow: 0 0 15px var(--neon-blue);
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.product-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,229,255,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.02);
   background: var(--cg-bg-card-hover);
-  border-color: var(--neon-blue);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 25px rgba(0,212,255,0.4);
+  border-color: rgba(0,229,255,0.4);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.5),
+    0 0 30px rgba(0,229,255,0.3);
 }
 
+.product-card:hover::before { transform: scaleX(1); }
+.product-card:hover::after { opacity: 1; }
+
 .product-card h3 {
-  color: var(--neon-turquoise);
-  font-size: 18px;
+  color: var(--neon-cyan);
+  font-size: 17px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+
+.product-card:hover h3 {
+  color: var(--neon-green);
+  text-shadow: 0 0 15px rgba(0,255,157,0.5);
 }
 
 .product-card p {
   color: var(--cg-text-dim);
   font-size: 13px;
   line-height: 1.7;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .product-card a {
-  color: var(--neon-blue);
-  font-weight: 600;
+  color: var(--neon-cyan);
+  font-weight: 700;
   font-size: 13px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.product-card:hover a {
+  transform: translateX(-6px);
+  color: var(--neon-green);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================
@@ -239,6 +433,7 @@ code {
   direction: rtl;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.3);
 }
 
 .calculator::before {
@@ -246,8 +441,10 @@ code {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--neon-turquoise), var(--neon-blue));
-  box-shadow: 0 0 15px var(--neon-turquoise);
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan), var(--neon-purple));
+  background-size: 200% 100%;
+  animation: gradientShift 3s linear infinite;
+  box-shadow: 0 0 20px var(--neon-green);
 }
 
 .calculator label {
@@ -259,9 +456,10 @@ code {
 }
 
 .calculator label span {
-  color: var(--neon-blue);
+  color: var(--neon-cyan);
   font-weight: 700;
   font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(0,229,255,0.4);
 }
 
 .calculator input,
@@ -269,7 +467,7 @@ code {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid var(--border-soft);
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 10px;
   font-family: inherit;
   font-size: 14px;
@@ -277,55 +475,80 @@ code {
   color: var(--cg-text-main);
   direction: ltr;
   text-align: left;
-  transition: all 0.25s;
+  transition: all 0.3s;
 }
 
 .calculator input:focus,
 .calculator select:focus {
   outline: none;
-  border-color: var(--neon-turquoise);
-  box-shadow: 0 0 0 3px rgba(0,255,200,0.15);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 3px rgba(0,229,255,0.15), 0 0 20px rgba(0,229,255,0.2);
+  background: var(--cg-bg-card-hover);
 }
 
 .calculator button {
-  background: linear-gradient(135deg, var(--neon-turquoise), var(--neon-blue));
-  color: #1a1d24;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  background-size: 200% 200%;
+  color: #0f1117;
   padding: 14px 28px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-family: inherit;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
   width: 100%;
   margin-top: 12px;
-  transition: all 0.25s;
-  box-shadow: 0 0 20px rgba(0,255,200,0.35);
+  transition: all 0.3s;
+  box-shadow: 0 0 20px rgba(0,229,255,0.35);
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 4s ease infinite;
+}
+
+.calculator button::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: right 0.6s;
 }
 
 .calculator button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(0,255,200,0.6);
+  box-shadow: 0 10px 30px rgba(0,229,255,0.5), 0 0 40px rgba(177,76,255,0.3);
+}
+
+.calculator button:hover::before {
+  right: 100%;
+}
+
+.calculator button:active {
+  transform: translateY(0);
 }
 
 .calc-formula {
   font-family: 'Courier New', monospace;
-  background: rgba(0,255,200,0.08);
-  border: 1px dashed rgba(0,255,200,0.3);
-  border-radius: 8px;
+  background: rgba(0,255,157,0.06);
+  border: 1px dashed rgba(0,255,157,0.4);
+  border-radius: 10px;
   padding: 14px 16px;
-  color: var(--neon-turquoise);
+  color: var(--neon-green);
   font-size: 14px;
   direction: ltr;
   text-align: left;
   margin: 16px 0;
+  box-shadow: inset 0 0 20px rgba(0,255,157,0.05);
+  text-shadow: 0 0 10px rgba(0,255,157,0.4);
 }
 
 .calc-result {
   margin-top: 18px;
   padding: 18px;
-  background: rgba(0,230,118,0.08);
-  border: 1px solid rgba(0,230,118,0.3);
+  background: rgba(0,255,157,0.08);
+  border: 1px solid rgba(0,255,157,0.3);
   border-right: 4px solid var(--neon-green);
   border-radius: 10px;
   display: none;
@@ -351,6 +574,119 @@ code {
 }
 
 /* ============================================
+   Admonition (هشدارها)
+   ============================================ */
+.md-typeset .admonition {
+  font-size: 0.9rem;
+  border-radius: 12px;
+  border-right: 4px solid var(--neon-cyan);
+  background: var(--cg-bg-card);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  transition: all 0.3s;
+}
+
+.md-typeset .admonition:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35), 0 0 20px rgba(0,229,255,0.15);
+}
+
+.md-typeset .admonition.warning { border-right-color: var(--neon-orange); }
+.md-typeset .admonition.danger { border-right-color: var(--neon-pink); }
+.md-typeset .admonition.success { border-right-color: var(--neon-green); }
+.md-typeset .admonition.tip { border-right-color: var(--neon-purple); }
+.md-typeset .admonition.info { border-right-color: var(--neon-cyan); }
+
+.md-typeset .admonition-title {
+  background: transparent !important;
+  font-weight: 700;
+}
+
+.md-typeset .admonition.tip > .admonition-title { color: var(--neon-purple); }
+.md-typeset .admonition.success > .admonition-title { color: var(--neon-green); }
+.md-typeset .admonition.warning > .admonition-title { color: var(--neon-orange); }
+
+/* ============================================
+   کد و Syntax Highlight
+   ============================================ */
+.md-typeset code {
+  background: var(--cg-bg-elevated);
+  color: var(--neon-cyan);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.85em;
+  border: 1px solid var(--border-soft);
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.md-typeset pre {
+  background: var(--cg-bg-card) !important;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  direction: ltr;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.md-typeset pre::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.md-typeset pre > code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--cg-text-main);
+}
+
+/* ============================================
+   دکمه کپی کد
+   ============================================ */
+.md-clipboard {
+  color: var(--neon-cyan) !important;
+  transition: all 0.3s;
+}
+
+.md-clipboard:hover {
+  color: var(--neon-green) !important;
+  transform: scale(1.15);
+}
+
+/* ============================================
+   جستجو
+   ============================================ */
+.md-search__input {
+  font-family: "Vazirmatn", sans-serif !important;
+  background: var(--cg-bg-card) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--border-soft);
+}
+
+.md-search__input:focus {
+  box-shadow: 0 0 0 3px rgba(0,229,255,0.15), 0 0 25px rgba(0,229,255,0.2) !important;
+  border-color: var(--neon-cyan);
+}
+
+.md-search-result__meta {
+  background-color: var(--neon-cyan) !important;
+  color: #0f1117 !important;
+}
+
+.md-search-result__link {
+  transition: background 0.2s;
+}
+
+.md-search-result__link:hover {
+  background: var(--cg-bg-card-hover) !important;
+}
+
+/* ============================================
    SVG
    ============================================ */
 .md-typeset svg {
@@ -361,64 +697,148 @@ code {
   border: 1px solid var(--border-soft);
   border-radius: 12px;
   padding: 12px;
-}
-
-/* ============================================
-   هشدارها (Admonition)
-   ============================================ */
-.md-typeset .admonition {
-  font-size: 0.9rem;
-  border-radius: 10px;
-  border-right: 4px solid var(--neon-blue);
-  background: var(--cg-bg-card);
-}
-
-.md-typeset .admonition.warning {
-  border-right-color: var(--neon-orange);
-}
-
-.md-typeset .admonition.danger {
-  border-right-color: var(--neon-red);
-}
-
-.md-typeset .admonition.success {
-  border-right-color: var(--neon-green);
-}
-
-.md-typeset .admonition-title {
-  background: transparent !important;
-  font-weight: 700;
-}
-
-/* ============================================
-   تگ‌ها
-   ============================================ */
-.tag {
-  display: inline-block;
-  padding: 6px 14px;
-  background: var(--cg-bg-card);
-  border: 1px solid var(--border-soft);
-  border-radius: 20px;
-  font-size: 12px;
-  color: var(--cg-text-dim);
-  margin: 4px;
-  cursor: pointer;
-  transition: all 0.25s;
-}
-
-.tag:hover {
-  color: var(--neon-blue);
-  border-color: var(--neon-blue);
-  box-shadow: 0 0 15px rgba(0,212,255,0.4);
-  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 /* ============================================
    فوتر
    ============================================ */
 .md-footer {
-  background: rgba(43,48,59,0.95) !important;
+  background: rgba(15,17,23,0.95) !important;
   border-top: 1px solid var(--border-soft);
+}
+
+.md-footer-meta {
+  background: rgba(15,17,23,0.95) !important;
+}
+
+.md-footer__link {
+  color: var(--neon-cyan) !important;
+  transition: all 0.3s;
+}
+
+.md-footer__link:hover {
+  color: var(--neon-green) !important;
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* ============================================
+   دکمه بازگشت به بالا
+   ============================================ */
+.md-top {
+  background: var(--cg-bg-card) !important;
+  color: var(--neon-cyan) !important;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 0 20px rgba(0,229,255,0.3);
+  transition: all 0.3s;
+}
+
+.md-top:hover {
+  background: var(--cg-bg-card-hover) !important;
+  color: var(--neon-green) !important;
+  box-shadow: 0 0 30px rgba(0,255,157,0.5);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   اسکرول‌بار نئونی
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cg-bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 5px;
+  border: 2px solid var(--cg-bg-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-green), var(--neon-cyan));
+}
+
+/* ============================================
+   RTL و متن فارسی
+   ============================================ */
+body, .md-content, .md-typeset {
+  direction: rtl;
+  text-align: right;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.md-typeset pre,
+.md-typeset pre code,
+code {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: embed;
+}
+
+/* ============================================
+   انیمیشن ورود محتوا
+   ============================================ */
+.md-content__inner > * {
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.md-content__inner > *:nth-child(1) { animation-delay: 0.02s; }
+.md-content__inner > *:nth-child(2) { animation-delay: 0.05s; }
+.md-content__inner > *:nth-child(3) { animation-delay: 0.08s; }
+.md-content__inner > *:nth-child(4) { animation-delay: 0.11s; }
+.md-content__inner > *:nth-child(5) { animation-delay: 0.14s; }
+
+/* ============================================
+   دکمه‌های تب (pymdownx.tabbed)
+   ============================================ */
+.md-typeset .tabbed-labels > label {
+  color: var(--cg-text-dim);
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.md-typeset .tabbed-labels > label:hover {
+  color: var(--neon-cyan);
+}
+
+.md-typeset .tabbed-labels > label.tabbed-labels--active,
+.md-typeset .tabbed-set > input:checked + .tabbed-labels > label {
+  color: var(--neon-cyan) !important;
+  border-bottom-color: var(--neon-cyan) !important;
+  text-shadow: 0 0 10px rgba(0,229,255,0.5);
+  font-weight: 700;
+}
+
+/* ============================================
+   لینک‌های permalink تیترها
+   ============================================ */
+.md-typeset .headerlink {
+  color: var(--neon-cyan);
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+.md-typeset .headerlink:hover {
+  opacity: 1;
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* ============================================
+   Sidebar Scrollbar
+   ============================================ */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 3px;
 }
 
 /* ============================================
@@ -428,14 +848,16 @@ code {
   .calculator { padding: 16px; }
   .product-grid { grid-template-columns: 1fr; }
   .md-typeset h1 { font-size: 1.8rem; }
+  .md-nav__link--active::after { left: 12px; }
 }
 
 /* ============================================
    چاپ
    ============================================ */
 @media print {
-  .md-header, .md-sidebar, .md-footer, .calculator button {
+  .md-header, .md-sidebar, .md-footer, .calculator button, .md-top {
     display: none !important;
   }
   .calculator { border: 1px solid #000; }
+  body { background: white !important; color: black !important; }
 }
