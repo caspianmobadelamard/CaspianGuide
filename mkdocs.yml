@@ -40,6 +40,7 @@ extra_css:
 extra_javascript:
   - javascripts/calculator.js
   - javascripts/pwa.js
+  - javascripts/product-filter.js
 
 markdown_extensions:
   - admonition
@@ -77,6 +78,7 @@ nav:
 
   - 💼 فروش:
     - معرفی محصولات: sales/products-overview.md
+    - فیلتر محصولات: sales/products-filter.md
     - واژه‌نامه فروش: sales/glossary-sales.md
     - استانداردها برای فروش: sales/standards-sales.md
     - لوازم و تجهیزات: sales/accessories-sales.md

@@ -8,7 +8,7 @@
   "scope": "/CaspianGuide/",
   "id": "/CaspianGuide/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "orientation": "portrait-primary",
   "theme_color": "#00e5ff",
   "background_color": "#0f1117",
@@ -42,40 +42,32 @@
   ],
   "shortcuts": [
     {
-      "name": "ماشین‌حساب",
+      "name": "ماشین‌حساب مهندسی",
       "short_name": "ماشین‌حساب",
-      "description": "ماشین‌حساب مهندسی دیگ",
+      "description": "ماشین‌حساب محاسبات دیگ",
       "url": "/CaspianGuide/engineering/calculations/calculator/",
-      "icons": [
-        {
-          "src": "assets/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "واژه‌نامه فروش",
+      "name": "واژه‌نامه دوزبانه",
       "short_name": "واژه‌نامه",
-      "description": "واژه‌نامه دوزبانه قطعات",
+      "description": "واژه‌نامه قطعات و تجهیزات",
       "url": "/CaspianGuide/sales/glossary-sales/",
-      "icons": [
-        {
-          "src": "assets/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "فیلتر محصولات",
+      "short_name": "محصولات",
+      "description": "جستجو و فیلتر محصولات",
+      "url": "/CaspianGuide/sales/products-filter/",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "دیگ بخار",
       "short_name": "دیگ بخار",
       "description": "معرفی دیگ‌های بخار",
       "url": "/CaspianGuide/sales/boilers/steam-boilers/",
-      "icons": [
-        {
-          "src": "assets/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }

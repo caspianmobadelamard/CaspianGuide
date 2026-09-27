@@ -1,5 +1,6 @@
 /* ============================================
    PWA Registration — CaspianGuide
+   نسخه ۲ — با اطلاع‌رسانی به کاربر برای آپدیت
    ============================================ */
 
 if ('serviceWorker' in navigator) {
@@ -9,6 +10,23 @@ if ('serviceWorker' in navigator) {
     })
       .then((reg) => {
         console.log('✅ [PWA] Service Worker registered:', reg.scope);
+
+        // چک آپدیت SW هر ۱ ساعت
+        setInterval(() => {
+          reg.update().catch((err) => console.warn('SW update failed:', err));
+        }, 60 * 60 * 1000);
+
+        // اطلاع‌رسانی برای آپدیت جدید
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                showUpdateNotification();
+              }
+            });
+          }
+        });
       })
       .catch((err) => {
         console.warn('⚠️ [PWA] Service Worker registration failed:', err);
@@ -17,31 +35,56 @@ if ('serviceWorker' in navigator) {
 }
 
 /* ============================================
-   Apple Touch Icon (برای iOS)
+   نمایش نوتیفیکیشن آپدیت
    ============================================ */
-(function addAppleTouchIcon() {
-  const link = document.createElement('link');
-  link.rel = 'apple-touch-icon';
-  link.href = '/CaspianGuide/assets/apple-touch-icon.png';
-  document.head.appendChild(link);
+function showUpdateNotification() {
+  const toast = document.createElement('div');
+  toast.className = 'pwa-update-toast';
+  toast.innerHTML = `
+    <span>🚀 نسخه جدید در دسترس است</span>
+    <button onclick="location.reload(true)">به‌روزرسانی</button>
+  `;
+  document.body.appendChild(toast);
+}
 
-  const meta1 = document.createElement('meta');
-  meta1.name = 'apple-mobile-web-app-capable';
-  meta1.content = 'yes';
-  document.head.appendChild(meta1);
+/* ============================================
+   Apple Touch Icon + Meta Tags (برای iOS)
+   ============================================ */
+(function addAppleMetaTags() {
+  const tags = [
+    { rel: 'apple-touch-icon', href: '/CaspianGuide/assets/apple-touch-icon.png' },
+    { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/CaspianGuide/assets/icon-192.png' },
+    { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/CaspianGuide/assets/icon-512.png' }
+  ];
 
-  const meta2 = document.createElement('meta');
-  meta2.name = 'apple-mobile-web-app-status-bar-style';
-  meta2.content = 'black-translucent';
-  document.head.appendChild(meta2);
+  tags.forEach((tag) => {
+    const link = document.createElement('link');
+    Object.keys(tag).forEach((key) => (link[key] = tag[key]));
+    document.head.appendChild(link);
+  });
 
-  const meta3 = document.createElement('meta');
-  meta3.name = 'apple-mobile-web-app-title';
-  meta3.content = 'کاسپین';
-  document.head.appendChild(meta3);
+  const metas = [
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+    { name: 'apple-mobile-web-app-title', content: 'کاسپین' },
+    { name: 'mobile-web-app-capable', content: 'yes' },
+    { name: 'theme-color', content: '#00e5ff' },
+    { name: 'application-name', content: 'راهنمای کاسپین' }
+  ];
 
-  const meta4 = document.createElement('meta');
-  meta4.name = 'theme-color';
-  meta4.content = '#00e5ff';
-  document.head.appendChild(meta4);
+  metas.forEach((meta) => {
+    const m = document.createElement('meta');
+    m.name = meta.name;
+    m.content = meta.content;
+    document.head.appendChild(m);
+  });
 })();
+
+/* ============================================
+   تشخیص حالت standalone
+   ============================================ */
+if (window.matchMedia('(display-mode: standalone)').matches ||
+    window.navigator.standalone === true) {
+  document.documentElement.classList.add('pwa-mode');
+  console.log('📱 [PWA] Running in standalone mode');
+}

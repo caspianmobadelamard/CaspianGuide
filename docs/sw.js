@@ -1,8 +1,9 @@
 /* ============================================
    Service Worker — CaspianGuide PWA
+   نسخه ۳ — Network First با Fallback
    ============================================ */
 
-const CACHE_NAME = 'caspian-guide-v1';
+const CACHE_NAME = 'caspian-guide-v3';
 const BASE_PATH = self.location.pathname.replace(/\/sw\.js$/, '');
 
 const URLS_TO_CACHE = [
@@ -11,10 +12,12 @@ const URLS_TO_CACHE = [
   `${BASE_PATH}/manifest.webmanifest`,
   `${BASE_PATH}/assets/icon-192.png`,
   `${BASE_PATH}/assets/icon-512.png`,
-  `${BASE_PATH}/assets/apple-touch-icon.png`,
+  `${BASE_PATH}/assets/apple-touch-icon.png`
 ];
 
-/* نصب */
+/* ============================================
+   نصب
+   ============================================ */
 self.addEventListener('install', (event) => {
   console.log('📦 [SW] Installing...');
   event.waitUntil(
@@ -27,7 +30,9 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-/* فعال‌سازی */
+/* ============================================
+   فعال‌سازی
+   ============================================ */
 self.addEventListener('activate', (event) => {
   console.log('✅ [SW] Activating...');
   event.waitUntil(
@@ -35,20 +40,42 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keys
           .filter((key) => key.startsWith('caspian-guide-') && key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
+          .map((key) => {
+            console.log('🗑️ [SW] Deleting old cache:', key);
+            return caches.delete(key);
+          })
       );
     })
   );
   self.clients.claim();
 });
 
-/* Fetch — Network First */
+/* ============================================
+   Fetch — Network First
+   ============================================ */
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
   if (request.method !== 'GET') return;
   if (!request.url.startsWith('http')) return;
 
+  // Google Fonts — Cache First
+  if (request.url.includes('fonts.googleapis.com') ||
+      request.url.includes('fonts.gstatic.com')) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(request).then((cached) => {
+          return cached || fetch(request).then((response) => {
+            cache.put(request, response.clone());
+            return response;
+          });
+        });
+      })
+    );
+    return;
+  }
+
+  // بقیه — Network First
   event.respondWith(
     fetch(request)
       .then((response) => {
@@ -70,4 +97,13 @@ self.addEventListener('fetch', (event) => {
         });
       })
   );
+});
+
+/* ============================================
+   پیام از کلاینت
+   ============================================ */
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
