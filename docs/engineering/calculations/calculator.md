@@ -2,6 +2,10 @@
 
 **Engineering Calculator**
 
+!!! tip "راهنما"
+    این ماشین‌حساب شامل ۹ ماژول محاسباتی برای دیگ‌های پوسته‌ای و مخازن تحت فشار است.
+    تمام محاسبات بر اساس استانداردهای INSO 22156، EN 12953 و ASME VIII انجام می‌شود.
+
 ---
 
 ## 📐 محاسبه ضخامت پوسته — INSO 22156 / EN 12953
@@ -82,7 +86,7 @@ t = (P × R) / (S × E − 0.6 × P)
 <div class="calculator">
 
 <div class="calc-formula">
-e_cf ≈ (P_c × d_m × S₁) / (2 × f_s × (1 + 0.1 × d_m/L))
+e_cf ≈ (P_c × d_m × S₁ × k_u) / (2 × f_s × (1 + 0.1 × d_m/L))
 </div>
 
 <label>فشار طراحی <span>P</span> (bar)</label>
@@ -106,6 +110,9 @@ e_cf ≈ (P_c × d_m × S₁) / (2 × f_s × (1 + 0.1 × d_m/L))
 
 </div>
 
+!!! warning "توجه"
+    این محاسبه **تقریبی** است. برای دقت بیشتر به `EN 12953-3` بخش ۱۳ مراجعه کنید.
+
 ---
 
 ## 📐 محاسبه قطر داخلی پوسته
@@ -113,7 +120,7 @@ e_cf ≈ (P_c × d_m × S₁) / (2 × f_s × (1 + 0.1 × d_m/L))
 <div class="calculator">
 
 <div class="calc-formula">
-d_is = d_os − 2 × (e_s − c₁ − c₂)
+d_is = d_os − 2 × e_s
 </div>
 
 <label>قطر خارجی <span>d_os</span> (mm)</label>
@@ -209,6 +216,9 @@ P_c = P_S + P_h
 
 </div>
 
+!!! info "تبدیل واحد"
+    فشار ستون آب بر حسب mmH₂O به bar تبدیل می‌شود: `1 mmH₂O = 0.0000981 bar`
+
 ---
 
 ## 📐 محاسبه فشار تست هیدرواستاتیک
@@ -216,17 +226,29 @@ P_c = P_S + P_h
 <div class="calculator">
 
 <div class="calc-formula">
-P_test = 1.5 × P_design
+P_test = 1.43 × P_s (INSO) | P_test = 1.3 × MAWP (ASME)
 </div>
 
 <label>فشار طراحی (bar)</label>
 <input type="number" id="tp-pd" value="10" step="0.1">
+
+<label>روش استاندارد</label>
+<select id="tp-method">
+  <option value="inso" selected>INSO 22156-5 (1.43 × P_s)</option>
+  <option value="asme">ASME VIII Div.1 (1.3 × MAWP)</option>
+</select>
 
 <button onclick="calcTestPressure()">⚡ محاسبه کن</button>
 
 <div class="calc-result" id="tp-result"></div>
 
 </div>
+
+!!! warning "توجه"
+    - **INSO 22156-5**: `P_test = 1.43 × P_s`
+    - **ASME VIII Div.1**: `P_test = 1.3 × MAWP × (S₂₀/S_t)`
+    - دمای آب تست: `MDMT + 17°C` تا `50°C`
+    - مدت زمان تست: ۳۰ تا ۱۲۰ دقیقه بر اساس حجم
 
 ---
 
@@ -261,3 +283,36 @@ t = P × D / (2 × S × E − 0.2 × P)
 <div class="calc-result" id="head-result"></div>
 
 </div>
+
+---
+
+## 📚 مراجع فرمول‌ها
+
+| فرمول | استاندارد | بخش |
+|---|---|---|
+| ضخامت پوسته (INSO) | INSO 22156-3 / EN 12953-3 | بند ۸ |
+| ضخامت پوسته (ASME) | ASME VIII Div.1 | UG-27 |
+| ضخامت کوره | EN 12953-3 | Section 13 |
+| ضخامت کلگی | ASME VIII Div.1 | UG-32 |
+| فشار تست | INSO 22156-5 / ASME VIII | — |
+| حد خوردگی | INSO 22156-3 | بند 8-2-2 |
+
+---
+
+## ⚠️ سلب مسئولیت
+
+!!! danger "هشدار مهم"
+    این ماشین‌حساب فقط برای **محاسبات مقدماتی و تخمینی** طراحی شده است.  
+    برای طراحی نهایی و رسمی، باید از **نرم‌افزارهای تخصصی** (مانند PV Elite، Compress) و **مهندس مجرب** استفاده شود.  
+    کاسپین مبدل آمارد مسئولیتی در قبال استفاده نادرست از این محاسبات نمی‌پذیرد.
+
+---
+
+## 🔗 لینک‌های مرتبط
+
+- [ضخامت پوسته](../vessels/shell-thickness.md)
+- [ضخامت کوره](furnace-thickness.md)
+- [طراحی کلگی](../vessels/head-design.md)
+- [حد خوردگی](../vessels/corrosion-allowance.md)
+- [تست هیدرواستاتیک](../vessels/hydrostatic-test.md)
+- [فشار طراحی](design-pressure.md)
