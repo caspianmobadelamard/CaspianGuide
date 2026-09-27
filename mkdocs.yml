@@ -23,6 +23,7 @@ theme:
     - navigation.expand
     - navigation.top
     - navigation.indexes
+    - navigation.tracking
     - search.suggest
     - search.highlight
     - search.share
@@ -74,7 +75,8 @@ nav:
 
   - 💼 فروش:
     - معرفی محصولات: sales/products-overview.md
-    - استانداردها: sales/standards-sales.md
+    - واژه‌نامه فروش: sales/glossary-sales.md
+    - استانداردها برای فروش: sales/standards-sales.md
     - لوازم و تجهیزات: sales/accessories-sales.md
     - متن نمایشگاه: sales/exhibition-scripts.md
     - پاسخ به اعتراض: sales/objection-handling.md
@@ -89,6 +91,8 @@ nav:
     - استانداردها:
       - INSO 22156 / EN 12953: engineering/standards/inso-22156-en-12953.md
       - BS 855 / ISIRI 7911: engineering/standards/bs-855-isiri-7911.md
+    - واژه‌نامه فنی:
+      - قطعات و تجهیزات: engineering/glossary/components.md
     - متریال:
       - ورق‌ها: engineering/materials/plates.md
       - لوله‌ها: engineering/materials/tubes.md
@@ -128,6 +132,7 @@ nav:
       - معیارهای پذیرش: engineering/ndt/acceptance-criteria.md
       - صلاحیت پرسنل: engineering/ndt/personnel-qualification.md
     - تجهیزات جانبی:
+      - انتخاب مشعل: engineering/equipment/burner-selection.md
       - منبع اسپیرال: engineering/equipment/spiral-tank.md
       - مبدل کویل مسی: engineering/equipment/copper-coil.md
       - منبع کوئلی: engineering/equipment/coil-tank.md
