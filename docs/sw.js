@@ -1,9 +1,9 @@
 /* ============================================
    Service Worker — CaspianGuide PWA
-   نسخه ۳ — Network First با Fallback
+   نسخه ۴ — Network First + Cache Fallback
    ============================================ */
 
-const CACHE_NAME = 'caspian-guide-v3';
+const CACHE_NAME = 'caspian-guide-v4';
 const BASE_PATH = self.location.pathname.replace(/\/sw\.js$/, '');
 
 const URLS_TO_CACHE = [
@@ -15,9 +15,7 @@ const URLS_TO_CACHE = [
   `${BASE_PATH}/assets/apple-touch-icon.png`
 ];
 
-/* ============================================
-   نصب
-   ============================================ */
+/* نصب */
 self.addEventListener('install', (event) => {
   console.log('📦 [SW] Installing...');
   event.waitUntil(
@@ -30,9 +28,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-/* ============================================
-   فعال‌سازی
-   ============================================ */
+/* فعال‌سازی */
 self.addEventListener('activate', (event) => {
   console.log('✅ [SW] Activating...');
   event.waitUntil(
@@ -40,19 +36,14 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keys
           .filter((key) => key.startsWith('caspian-guide-') && key !== CACHE_NAME)
-          .map((key) => {
-            console.log('🗑️ [SW] Deleting old cache:', key);
-            return caches.delete(key);
-          })
+          .map((key) => caches.delete(key))
       );
     })
   );
   self.clients.claim();
 });
 
-/* ============================================
-   Fetch — Network First
-   ============================================ */
+/* Fetch — Network First */
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
@@ -99,9 +90,6 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-/* ============================================
-   پیام از کلاینت
-   ============================================ */
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();

@@ -44,29 +44,19 @@
     {
       "name": "ماشین‌حساب مهندسی",
       "short_name": "ماشین‌حساب",
-      "description": "ماشین‌حساب محاسبات دیگ",
       "url": "/CaspianGuide/engineering/calculations/calculator/",
-      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "واژه‌نامه دوزبانه",
-      "short_name": "واژه‌نامه",
-      "description": "واژه‌نامه قطعات و تجهیزات",
-      "url": "/CaspianGuide/sales/glossary-sales/",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "فیلتر محصولات",
       "short_name": "محصولات",
-      "description": "جستجو و فیلتر محصولات",
       "url": "/CaspianGuide/sales/products-filter/",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "دیگ بخار",
-      "short_name": "دیگ بخار",
-      "description": "معرفی دیگ‌های بخار",
-      "url": "/CaspianGuide/sales/boilers/steam-boilers/",
+      "name": "واژه‌نامه دوزبانه",
+      "short_name": "واژه‌نامه",
+      "url": "/CaspianGuide/sales/glossary-sales/",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }
   ]

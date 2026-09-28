@@ -1,6 +1,5 @@
 /* ============================================
    PWA Registration — CaspianGuide
-   نسخه ۲ — با اطلاع‌رسانی به کاربر برای آپدیت
    ============================================ */
 
 if ('serviceWorker' in navigator) {
@@ -11,12 +10,10 @@ if ('serviceWorker' in navigator) {
       .then((reg) => {
         console.log('✅ [PWA] Service Worker registered:', reg.scope);
 
-        // چک آپدیت SW هر ۱ ساعت
         setInterval(() => {
           reg.update().catch((err) => console.warn('SW update failed:', err));
         }, 60 * 60 * 1000);
 
-        // اطلاع‌رسانی برای آپدیت جدید
         reg.addEventListener('updatefound', () => {
           const newWorker = reg.installing;
           if (newWorker) {
@@ -34,9 +31,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-/* ============================================
-   نمایش نوتیفیکیشن آپدیت
-   ============================================ */
 function showUpdateNotification() {
   const toast = document.createElement('div');
   toast.className = 'pwa-update-toast';
@@ -48,7 +42,7 @@ function showUpdateNotification() {
 }
 
 /* ============================================
-   Apple Touch Icon + Meta Tags (برای iOS)
+   Apple Touch Icon + Meta Tags
    ============================================ */
 (function addAppleMetaTags() {
   const tags = [
@@ -80,9 +74,6 @@ function showUpdateNotification() {
   });
 })();
 
-/* ============================================
-   تشخیص حالت standalone
-   ============================================ */
 if (window.matchMedia('(display-mode: standalone)').matches ||
     window.navigator.standalone === true) {
   document.documentElement.classList.add('pwa-mode');

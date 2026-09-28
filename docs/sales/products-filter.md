@@ -3,7 +3,7 @@
 **Product Filter**
 
 !!! tip "راهنما"
-    با استفاده از فیلترهای زیر، محصول مناسب خود را پیدا کنید. می‌توانید بر اساس **نوع محصول**، **ظرفیت**، **فشار** و **سوخت** فیلتر کنید.
+    با استفاده از فیلترهای زیر، محصول مناسب خود را پیدا کنید.
 
 ---
 
@@ -12,7 +12,7 @@
 <div class="filter-group">
 <label>🔧 نوع محصول (Product Type)</label>
 <select id="filter-type">
-  <option value="">همه محصولات</option>
+  <option value="">همه محصولات (All Products)</option>
   <option value="steam">دیگ بخار (Steam Boiler)</option>
   <option value="warm">دیگ آبگرم (Warm Water Boiler)</option>
   <option value="hot">دیگ آب داغ (Hot Water Boiler)</option>
@@ -24,7 +24,7 @@
 <div class="filter-group">
 <label>📊 ظرفیت (Capacity)</label>
 <select id="filter-capacity">
-  <option value="">همه ظرفیت‌ها</option>
+  <option value="">همه ظرفیت‌ها (All Capacities)</option>
   <option value="small">کم (تا ۱ تن / ۵۰۰,۰۰۰ kcal/h)</option>
   <option value="medium">متوسط (۱ تا ۱۰ تن / ۵۰۰,۰۰۰ تا ۲,۰۰۰,۰۰۰ kcal/h)</option>
   <option value="large">بالا (بالای ۱۰ تن / ۲,۰۰۰,۰۰۰ kcal/h)</option>
@@ -34,7 +34,7 @@
 <div class="filter-group">
 <label>⚡ فشار (Pressure)</label>
 <select id="filter-pressure">
-  <option value="">همه فشارها</option>
+  <option value="">همه فشارها (All Pressures)</option>
   <option value="low">کم (تا ۵ bar)</option>
   <option value="medium">متوسط (۵ تا ۱۰ bar)</option>
   <option value="high">بالا (بالای ۱۰ bar)</option>
@@ -44,7 +44,7 @@
 <div class="filter-group">
 <label>🔥 سوخت (Fuel)</label>
 <select id="filter-fuel">
-  <option value="">همه سوخت‌ها</option>
+  <option value="">همه سوخت‌ها (All Fuels)</option>
   <option value="gas">گاز طبیعی (Natural Gas)</option>
   <option value="diesel">گازوئیل (Diesel)</option>
   <option value="dual">دوگانه‌سوز (Dual Fuel)</option>
@@ -52,7 +52,7 @@
 </select>
 </div>
 
-<button onclick="resetFilters()" class="filter-reset">🔄 پاک کردن فیلترها</button>
+<button onclick="resetFilters()" class="filter-reset">🔄 پاک کردن فیلترها (Reset Filters)</button>
 
 </div>
 
@@ -69,11 +69,18 @@
 <span class="badge">INSO 22156 / EN 12953</span>
 </div>
 
-<div class="product-card" data-type="steam" data-capacity="small" data-pressure="low" data-fuel="gas">
+<div class="product-card" data-type="steam" data-capacity="small" data-pressure="medium" data-fuel="gas">
 <h3>🔥 دیگ بخار عمودی</h3>
 <p><strong>Vertical Steam Boiler</strong></p>
-<p>ظرفیت: ۰.۱ تا ۲ ton/hr | فشار: ۴ تا ۱۰ bar</p>
+<p>ظرفیت: ۰.۲ تا ۲ ton/hr | فشار: ۶ تا ۱۰ bar</p>
 <span class="badge">INSO 22156 / BS 855</span>
+</div>
+
+<div class="product-card" data-type="steam" data-capacity="medium" data-pressure="low" data-fuel="gas">
+<h3>🔥 دیگ بخار فایرباکس</h3>
+<p><strong>Firebox Steam Boiler</strong></p>
+<p>ظرفیت: ۱ تا ۱۰ ton/hr | فشار: ۳ تا ۱۰ bar</p>
+<span class="badge">INSO 22156 / EN 12953</span>
 </div>
 
 <div class="product-card" data-type="warm" data-capacity="medium" data-pressure="low" data-fuel="gas">
@@ -90,10 +97,10 @@
 <span class="badge">INSO 22156 / EN 12953</span>
 </div>
 
-<div class="product-card" data-type="oil" data-capacity="large" data-pressure="low" data-fuel="gas">
+<div class="product-card" data-type="oil" data-capacity="large" data-pressure="medium" data-fuel="gas">
 <h3>🛢️ دیگ روغن داغ</h3>
 <p><strong>Thermal Oil Boiler</strong></p>
-<p>ظرفیت: تا ۵,۰۰۰,۰۰۰ kcal/h | دمای تا ۳۰۰°C</p>
+<p>ظرفیت: تا ۵,۰۰۰,۰۰۰ kcal/h | دمای تا ۳۲۰°C</p>
 <span class="badge">INSO 22156 / EN 12953</span>
 </div>
 
@@ -113,8 +120,15 @@
 
 <div class="product-card" data-type="tank" data-capacity="small" data-pressure="medium" data-fuel="">
 <h3>🔃 منبع کوئلی</h3>
-<p><strong>Coil Tank</strong></p>
+<p><strong>Coiled Vessel</strong></p>
 <p>حجم: ۲۰۰ تا ۱۰,۰۰۰ لیتر | فشار: ۳ تا ۱۰ bar</p>
+<span class="badge">ASME VIII</span>
+</div>
+
+<div class="product-card" data-type="tank" data-capacity="small" data-pressure="low" data-fuel="">
+<h3>🔄 مبدل کویل مسی</h3>
+<p><strong>Copper Coil Heat Exchanger</strong></p>
+<p>ظرفیت: ۵۰,۰۰۰ تا ۵۰۰,۰۰۰ kcal/h | تا ۱۵۰°C</p>
 <span class="badge">ASME VIII</span>
 </div>
 

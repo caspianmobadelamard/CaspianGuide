@@ -114,6 +114,8 @@ nav:
       - سطح حرارتی: engineering/calculations/heat-transfer.md
       - فشار طراحی: engineering/calculations/design-pressure.md
       - فشار تست: engineering/calculations/test-pressure.md
+      - محاسبات خوردگی: engineering/calculations/corrosion-calculations.md
+      - محاسبات تکمیلی: engineering/calculations/boiler-calculations.md
       - مثال‌های واقعی: engineering/calculations/examples.md
     - مخازن تحت فشار:
       - استانداردهای طراحی: engineering/vessels/design-standards.md
