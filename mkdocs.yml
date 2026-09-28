@@ -10,8 +10,8 @@ theme:
   language: fa
   direction: rtl
   palette:
-    scheme: slate
-    primary: cyan
+    scheme: default
+    primary: teal
     accent: cyan
   font:
     text: Vazirmatn

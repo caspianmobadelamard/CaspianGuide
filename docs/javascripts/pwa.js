@@ -62,7 +62,7 @@ function showUpdateNotification() {
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
     { name: 'apple-mobile-web-app-title', content: 'کاسپین' },
     { name: 'mobile-web-app-capable', content: 'yes' },
-    { name: 'theme-color', content: '#00e5ff' },
+    { name: 'theme-color', content: '#0d9488' },
     { name: 'application-name', content: 'راهنمای کاسپین' }
   ];
 

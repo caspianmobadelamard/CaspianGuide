@@ -1,6 +1,5 @@
 /* ============================================
    Service Worker — CaspianGuide PWA
-   نسخه ۴ — Network First + Cache Fallback
    ============================================ */
 
 const CACHE_NAME = 'caspian-guide-v4';
