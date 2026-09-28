@@ -10,9 +10,9 @@ theme:
   language: fa
   direction: rtl
   palette:
-    scheme: default
-    primary: teal
-    accent: cyan
+    scheme: slate
+    primary: amber
+    accent: teal
   font:
     text: Vazirmatn
     code: Roboto Mono

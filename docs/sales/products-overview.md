@@ -7,57 +7,65 @@
 
 ---
 
-## 🏭 خطوط اصلی تولید
+<div class="product-grid">
 
-### ۱. 🔥 دیگ‌های بخار (Steam Boilers)
+<div class="product-card">
+<h3>🔥 دیگ بخار افقی</h3>
+<strong>Horizontal Three-Pass Steam Boiler</strong>
+<p>ظرفیت: ۱,۰۰۰ تا ۲۵,۰۰۰ kg/hr | ۲,۲۰۴ تا ۵۵,۱۱۵ lb/hr | ۷۰۰ تا ۱۷,۵۰۰ kW</p>
+<span class="badge">INSO 22156 / EN 12953</span>
+</div>
 
-| مدل | ظرفیت | فشار | استاندارد |
-|---|---|---|---|
-| **افقی سه‌پاس (Horizontal Three-Pass)** | ۱,۰۰۰ تا ۲۵,۰۰۰ kg/hr (۲,۲۰۴ تا ۵۵,۱۱۵ lb/hr — ۷۰۰ تا ۱۷,۵۰۰ kW) | ۳ تا ۲۰ bar | INSO 22156 / EN 12953 |
-| **فایرباکس (Firebox)** | ۱,۰۰۰ تا ۱۰,۰۰۰ kg/hr (۲,۲۰۴ تا ۲۲,۰۴۶ lb/hr — ۷۰۰ تا ۷,۰۰۰ kW) | ۳ تا ۱۰ bar | INSO 22156 / EN 12953 |
-| **عمودی (Vertical — LSS Series)** | ۲۰۰ تا ۲,۰۰۰ kg/hr (۴۴۱ تا ۴,۴۰۹ lb/hr — ۱۴۰ تا ۱,۴۰۰ kW) | ۶ تا ۱۰ bar | INSO 22156 / BS 855 |
+<div class="product-card">
+<h3>🔥 دیگ بخار عمودی</h3>
+<strong>Vertical Steam Boiler</strong>
+<p>ظرفیت: ۱۰۰ تا ۵۰۰ kg/hr | ۲۲۰ تا ۱,۱۰۲ lb/hr | ۷۰ تا ۳۵۰ kW</p>
+<span class="badge">INSO 22156 / BS 855</span>
+</div>
 
-**کاربرد (Application):** صنایع غذایی، دارویی، نساجی، شیمیایی، بیمارستان
+<div class="product-card">
+<h3>💧 دیگ آبگرم</h3>
+<strong>Warm Water Boiler</strong>
+<p>ظرفیت: تا ۲,۹۰۷ kW | ۲,۵۰۰,۰۰۰ kcal/h</p>
+<span class="badge">BS 855 / ISIRI 7911</span>
+</div>
 
----
+<div class="product-card">
+<h3>♨️ دیگ آب داغ</h3>
+<strong>Hot Water Boiler</strong>
+<p>فشار > ۸ bar | دمای > ۱۱۰°C | طراحی ۲۵۰°C</p>
+<span class="badge">INSO 22156 / EN 12953</span>
+</div>
 
-### ۲. 💧 دیگ‌های آبگرم (Warm Water Boilers)
+<div class="product-card">
+<h3>🛢️ دیگ روغن داغ</h3>
+<strong>Thermal Oil Boiler</strong>
+<p>ظرفیت: تا ۵,۸۱۳ kW | ۵,۰۰۰,۰۰۰ kcal/h | دمای تا ۳۲۰°C</p>
+<span class="badge">INSO 22156 / EN 12953</span>
+</div>
 
-| مدل | ظرفیت | دما | استاندارد |
-|---|---|---|---|
-| **سه‌پاس (Three-Pass)** | ۱۱۶ تا ۲,۹۰۷ kW (۱۰۰,۰۰۰ تا ۲,۵۰۰,۰۰۰ kcal/h) | < ۱۰۰°C | BS 855 / ISIRI 7911 |
-| **شعله برگشتی (Reverse Flame)** | ۱۱۶ تا ۱,۱۶۳ kW (۱۰۰,۰۰۰ تا ۱,۰۰۰,۰۰۰ kcal/h) | < ۱۰۰°C | BS 855 / ISIRI 7911 |
-| **پکیج موتورخانه‌ای (Central Package)** | سفارشی | < ۱۰۰°C | BS 855 / ISIRI 7911 |
+<div class="product-card">
+<h3>🌀 منبع اسپیرال</h3>
+<strong>Spiral Tank</strong>
+<p>حجم: ۱۰۰ تا ۵,۰۰۰ لیتر | فشار: ۳ تا ۱۰ bar</p>
+<span class="badge">ASME VIII</span>
+</div>
 
-> 💡 **نکته:** در صورت درخواست مشتری، دیگ آبگرم با استاندارد **INSO 22156 / EN 12953** هم قابل ارائه است.
+<div class="product-card">
+<h3>🔃 منبع کوئلی</h3>
+<strong>Coiled Vessel</strong>
+<p>حجم: ۲۰۰ تا ۱۰,۰۰۰ لیتر | فشار: ۳ تا ۱۰ bar</p>
+<span class="badge">ASME VIII</span>
+</div>
 
-**کاربرد (Application):** گرمایش ساختمان، هتل، بیمارستان، استخر، گلخانه
+<div class="product-card">
+<h3>💦 مخزن کندانس</h3>
+<strong>Condensate Tank</strong>
+<p>حجم: ۵۰۰ تا ۲۰,۰۰۰ لیتر | فشار اتمسفر</p>
+<span class="badge">ASME VIII</span>
+</div>
 
----
-
-### ۳. ♨️ دیگ‌های آب داغ (Hot Water Boilers)
-
-| مدل | ظرفیت | دما | فشار | استاندارد |
-|---|---|---|---|---|
-| **سه‌پاس (Three-Pass)** | ۱۱۶ تا ۲,۹۰۷ kW (۱۰۰,۰۰۰ تا ۲,۵۰۰,۰۰۰ kcal/h) | > ۱۱۰°C | > ۸ bar | INSO 22156 / EN 12953 |
-| **فشار بالا (High Pressure)** | ۵۸۱ تا ۵,۸۱۳ kW (۵۰۰,۰۰۰ تا ۵,۰۰۰,۰۰۰ kcal/h) | تا ۱۸۰°C | تا ۲۵ bar | EN 12953 |
-
-**دمای طراحی (Design Temperature):** ۲۵۰°C
-
-**کاربرد (Application):** گرمایش صنعتی، بیمارستان، صنایع غذایی
-
----
-
-### ۴. 🛢️ دیگ‌های روغن داغ (Thermal Oil Boilers)
-
-| مشخصه | مقدار |
-|---|---|
-| ظرفیت (Capacity) | ۱۱۶ تا ۵,۸۱۳ kW (۱۰۰,۰۰۰ تا ۵,۰۰۰,۰۰۰ kcal/h) |
-| دمای کاری (Working Temp.) | تا ۳۲۰°C |
-| فشار (Pressure) | ۰.۸ MPa (۸ bar) |
-| استاندارد (Standard) | INSO 22156 / EN 12953 |
-
-**کاربرد (Application):** صنایع شیمیایی، نساجی، چوب، غذایی، آسفالت
+</div>
 
 ---
 
