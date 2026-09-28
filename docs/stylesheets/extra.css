@@ -1,6 +1,6 @@
 /* ============================================
-   CaspianGuide — Navy Gold v5
-   Mobile-First Fix
+   CaspianGuide — Navy Gold v6
+   Desktop + Mobile Optimized
    ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -23,6 +23,7 @@
 
   --gradient-royal: linear-gradient(135deg, #f5b942 0%, #14b8a6 100%);
   --gradient-primary: linear-gradient(135deg, #f5b942 0%, #ff9500 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b6b 0%, #f5b942 100%);
 
   --border-soft: rgba(245,185,66,0.18);
 
@@ -31,45 +32,6 @@
   --md-primary-fg-color: #f5b942;
   --md-accent-fg-color: #14b8a6;
   --md-code-bg-color: #243c62;
-}
-
-/* ============================================
-   ✅ حیاتی: رفع مشکل عرض باریک
-   ============================================ */
-
-/* کل صفحه */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-}
-
-/* کانتینر اصلی */
-.md-container,
-.md-main,
-.md-main__inner,
-.md-content,
-.md-grid {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* محتوای اصلی */
-.md-content__inner {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 16px !important;
-  background: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-.md-content__inner::before {
-  display: none !important;
 }
 
 /* ============================================
@@ -85,6 +47,7 @@ body {
   background-size: cover !important;
   color: #f5f2ed;
   font-family: 'Vazirmatn', sans-serif;
+  overflow-x: hidden;
 }
 
 /* ============================================
@@ -94,19 +57,11 @@ body {
   background: rgba(20,36,64,0.98) !important;
   border-bottom: 1px solid rgba(245,185,66,0.18);
   box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-.md-header__inner {
-  max-width: 100% !important;
-  padding: 0 12px !important;
 }
 
 .md-header__title {
   font-weight: 800;
   color: #f5b942 !important;
-  font-size: 15px !important;
 }
 
 .md-header__button {
@@ -125,23 +80,11 @@ body {
 .md-tabs {
   background: rgba(20,36,64,0.98) !important;
   border-bottom: 1px solid rgba(245,185,66,0.18);
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-.md-tabs__inner {
-  max-width: 100% !important;
-  padding: 0 8px !important;
-}
-
-.md-tabs__list {
-  padding: 0 !important;
 }
 
 .md-tabs__link {
   color: #d8e0ed !important;
   font-weight: 600;
-  font-size: 13px !important;
 }
 
 .md-tabs__link--active {
@@ -153,19 +96,10 @@ body {
 }
 
 /* ============================================
-   Sidebar (منوی موبایل)
+   Sidebar
    ============================================ */
 .md-sidebar {
-  background: rgba(20,36,64,0.98) !important;
-  width: 100% !important;
-}
-
-.md-sidebar--primary {
-  width: auto !important;
-}
-
-.md-nav {
-  padding: 0 8px !important;
+  background: rgba(45,80,140,0.4) !important;
 }
 
 .md-nav__title {
@@ -180,11 +114,12 @@ body {
 
 .md-nav__link {
   border-radius: 8px;
-  padding: 10px 12px !important;
+  padding: 9px 12px !important;
   color: #d8e0ed !important;
   font-weight: 600;
   margin-bottom: 2px;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .md-nav__link:hover {
@@ -197,6 +132,7 @@ body {
   color: #ffd166 !important;
   font-weight: 800;
   border-right: 3px solid #f5b942;
+  position: relative;
 }
 
 .md-nav__link--active::after {
@@ -212,17 +148,32 @@ body {
   color: #f5b942 !important;
   width: 16px;
   height: 16px;
+  transition: transform 0.3s;
 }
 
 .md-nav__icon svg {
   fill: #f5b942 !important;
 }
 
+.md-nav__icon:hover,
+.md-nav__link:hover .md-nav__icon {
+  color: #ffd166 !important;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.md-nav__item--nested > .md-nav__link .md-nav__icon svg {
+  fill: #f5b942 !important;
+}
+
+.md-nav__link--active .md-nav__icon svg {
+  fill: #ffd166 !important;
+}
+
 /* ============================================
-   TOC (فهرست موضوعات)
+   TOC
    ============================================ */
 .md-sidebar--secondary {
-  background: rgba(26,46,77,0.98) !important;
+  background: rgba(26,46,77,0.9) !important;
   border-radius: 10px;
   padding: 10px;
   border: 1px solid rgba(245,185,66,0.18);
@@ -234,6 +185,7 @@ body {
   font-size: 13px;
   padding: 10px;
   border-radius: 8px;
+  border: none !important;
 }
 
 .md-sidebar--secondary .md-nav__link {
@@ -245,6 +197,14 @@ body {
   background: rgba(245,185,66,0.04);
   display: block;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+  color: #ffd166 !important;
+  background: rgba(245,185,66,0.15);
+  border-right: 3px solid #f5b942;
+  padding-right: 14px !important;
 }
 
 .md-sidebar--secondary .md-nav__link--active {
@@ -260,10 +220,9 @@ body {
 .md-typeset h1 {
   color: #f5b942 !important;
   font-weight: 900;
-  font-size: 1.5rem !important;
   border-bottom: 2px solid rgba(245,185,66,0.3);
   padding-bottom: 10px;
-  margin-bottom: 16px;
+  text-shadow: 0 0 20px rgba(245,185,66,0.3);
 }
 
 .md-typeset h2 {
@@ -271,13 +230,11 @@ body {
   border-right: 4px solid #f5b942;
   padding-right: 12px;
   font-weight: 800;
-  font-size: 1.2rem !important;
 }
 
 .md-typeset h3 {
   color: #14b8a6;
   font-weight: 700;
-  font-size: 1.05rem !important;
 }
 
 .md-typeset h4 {
@@ -290,13 +247,12 @@ body {
    ============================================ */
 .md-typeset {
   color: #f5f2ed;
-  font-size: 14px;
-  line-height: 1.75;
 }
 
 .md-typeset p,
 .md-typeset li {
   color: #f5f2ed;
+  line-height: 1.85;
 }
 
 .md-typeset strong {
@@ -307,6 +263,7 @@ body {
 .md-typeset a {
   color: #f5b942;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .md-typeset a:hover {
@@ -321,25 +278,28 @@ body {
   border: 1px solid rgba(245,185,66,0.18);
   border-radius: 10px;
   overflow: hidden;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  font-size: 13px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .md-typeset table:not([class]) th {
   background: linear-gradient(135deg, rgba(245,185,66,0.18), rgba(20,184,166,0.12)) !important;
   color: #ffd166 !important;
   font-weight: 800;
-  padding: 10px !important;
-  font-size: 12px;
+  border-bottom: 1px solid rgba(245,185,66,0.25) !important;
 }
 
 .md-typeset table:not([class]) td {
   border-bottom: 1px solid rgba(245,185,66,0.18) !important;
   color: #f5f2ed;
-  padding: 10px !important;
-  font-size: 12px;
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: rgba(245,185,66,0.06);
+}
+
+.md-typeset table:not([class]) tr:hover td:first-child {
+  color: #f5b942;
+  font-weight: 800;
 }
 
 /* ============================================
@@ -349,21 +309,18 @@ body {
   background: rgba(36,60,98,0.85);
   border-right: 4px solid #f5b942;
   border-radius: 10px;
-  padding: 12px 14px;
-  margin: 12px 0;
-  font-size: 13px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .md-typeset .admonition.success { border-right-color: #14b8a6; }
 .md-typeset .admonition.warning { border-right-color: #ff9500; }
 .md-typeset .admonition.danger { border-right-color: #ff6b6b; }
+.md-typeset .admonition.tip { border-right-color: #f5b942; }
 
 .md-typeset .admonition-title {
   background: transparent !important;
   color: #f5b942 !important;
   font-weight: 800;
-  font-size: 13px;
-  margin-bottom: 6px;
 }
 
 .md-typeset .admonition.success > .admonition-title { color: #14b8a6 !important; }
@@ -388,11 +345,9 @@ body {
   background: rgba(36,60,98,0.9) !important;
   border: 1px solid rgba(245,185,66,0.18);
   border-radius: 10px;
-  padding: 12px !important;
   direction: ltr;
   text-align: left;
-  overflow-x: auto;
-  font-size: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .md-typeset pre > code {
@@ -407,31 +362,58 @@ body {
    ============================================ */
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin: 16px 0;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
 }
 
 .product-card {
   background: rgba(36,60,98,0.9);
   border: 1px solid rgba(245,185,66,0.18);
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 14px;
+  padding: 20px;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.product-card:hover::before {
+  transform: scaleX(1);
 }
 
 .product-card h3 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
   color: #f5f2ed;
   margin-bottom: 6px;
 }
 
+.product-card:hover h3 {
+  color: #f5b942;
+}
+
 .product-card p {
   color: #d8e0ed;
   font-size: 13px;
-  line-height: 1.7;
-  margin-bottom: 10px;
+  line-height: 1.8;
+  margin-bottom: 12px;
 }
 
 .product-card strong {
@@ -439,12 +421,12 @@ body {
   font-style: italic;
   font-size: 12px;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .product-card .badge {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 5px 12px;
   background: rgba(245,185,66,0.12);
   border: 1px solid rgba(245,185,66,0.3);
   border-radius: 16px;
@@ -459,9 +441,20 @@ body {
 .calculator {
   background: rgba(36,60,98,0.9);
   border: 1px solid rgba(245,185,66,0.18);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 16px 0;
+  border-radius: 14px;
+  padding: 22px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+.calculator::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 3px;
+  background: var(--gradient-royal);
 }
 
 .calc-formula {
@@ -469,21 +462,21 @@ body {
   background: rgba(20,184,166,0.08);
   border: 1px dashed rgba(20,184,166,0.4);
   border-radius: 8px;
-  padding: 12px;
+  padding: 14px;
   color: #14b8a6;
-  font-size: 13px;
+  font-size: 14px;
   direction: ltr;
   text-align: center;
-  margin: 12px 0;
+  margin: 16px 0;
   font-weight: 800;
   overflow-x: auto;
 }
 
 .calculator label {
   display: block;
-  margin: 10px 0 4px;
+  margin: 12px 0 6px;
   color: #d8e0ed;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
 }
 
@@ -496,7 +489,7 @@ body {
 .calculator input,
 .calculator select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 11px 14px;
   background: rgba(47,77,126,0.6);
   border: 1.5px solid rgba(245,185,66,0.18);
   border-radius: 8px;
@@ -507,12 +500,20 @@ body {
   direction: ltr;
   text-align: left;
   box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.calculator input:focus,
+.calculator select:focus {
+  outline: none;
+  border-color: #f5b942;
+  background: rgba(47,77,126,0.9);
 }
 
 .calculator button {
   width: 100%;
-  margin-top: 12px;
-  padding: 12px;
+  margin-top: 16px;
+  padding: 14px;
   background: var(--gradient-royal);
   color: #142440;
   border: none;
@@ -521,7 +522,13 @@ body {
   font-size: 14px;
   font-weight: 900;
   cursor: pointer;
-  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 20px rgba(245,185,66,0.3);
+}
+
+.calculator button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(245,185,66,0.45);
 }
 
 /* ============================================
@@ -573,37 +580,149 @@ code {
 /* ============================================
    Scrollbar
    ============================================ */
-::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #142440; }
 ::-webkit-scrollbar-thumb {
   background: var(--gradient-royal);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 /* ============================================
-   Mobile Specific
+   ✅ DESKTOP — حفظ ساختار Material
+   ============================================ */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    background: rgba(45,80,140,0.4) !important;
+    border-radius: 0 16px 16px 0;
+    padding: 8px;
+    margin-right: 8px;
+  }
+
+  .md-sidebar--secondary {
+    background: rgba(26,46,77,0.9) !important;
+    border-radius: 16px 0 0 16px;
+    padding: 10px;
+    margin-left: 8px;
+  }
+}
+
+/* ============================================
+   ✅ MOBILE — نمایش تمام عرض
    ============================================ */
 @media screen and (max-width: 76.1875em) {
-  .md-content {
+  /* کل صفحه */
+  html, body {
     width: 100% !important;
     max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* کانتینرها */
+  .md-container,
+  .md-main,
+  .md-main__inner,
+  .md-content,
+  .md-grid {
+    max-width: 100% !important;
+    width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
+  /* محتوای اصلی */
   .md-content__inner {
-    padding: 14px !important;
-    margin: 0 !important;
-    width: 100% !important;
     max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 14px !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
   }
 
+  .md-content__inner::before {
+    display: none !important;
+  }
+
+  /* Header تمام عرض */
+  .md-header__inner {
+    max-width: 100% !important;
+    padding: 0 12px !important;
+  }
+
+  .md-header__title {
+    font-size: 15px !important;
+  }
+
+  /* Tabs */
+  .md-tabs__inner {
+    max-width: 100% !important;
+    padding: 0 8px !important;
+  }
+
+  .md-tabs__link {
+    font-size: 13px !important;
+  }
+
+  /* TOC تمام عرض */
+  .md-sidebar--secondary {
+    background: rgba(26,46,77,0.98) !important;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 8px !important;
+    border: 1px solid rgba(245,185,66,0.18);
+  }
+
+  /* Sidebar تمام عرض */
+  .md-sidebar--primary {
+    background: rgba(20,36,64,0.98) !important;
+  }
+
+  .md-nav {
+    padding: 0 8px !important;
+  }
+
+  /* Tables - اسکرول افقی */
+  .md-typeset table:not([class]) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .md-typeset table:not([class]) th {
+    padding: 10px !important;
+    font-size: 12px;
+  }
+
+  .md-typeset table:not([class]) td {
+    padding: 10px !important;
+    font-size: 12px;
+  }
+
+  /* Cards */
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Headings */
   .md-typeset h1 {
-    font-size: 1.35rem !important;
+    font-size: 1.5rem !important;
   }
 
   .md-typeset h2 {
-    font-size: 1.15rem !important;
+    font-size: 1.25rem !important;
+  }
+
+  .md-typeset h3 {
+    font-size: 1.1rem !important;
+  }
+
+  /* حذف انیمیشن‌ها */
+  .product-card {
+    transition: none !important;
   }
 
   /* حذف backdrop-filter */
@@ -615,27 +734,27 @@ code {
     -webkit-backdrop-filter: none !important;
   }
 
-  .md-nav--primary .md-nav__title {
-    background: rgba(20,36,64,0.98) !important;
-  }
-
-  .md-nav--primary .md-nav__title[for="__drawer"] {
-    color: #ffd166 !important;
-    background: rgba(20,36,64,0.98) !important;
+  /* Admonitions */
+  .md-typeset .admonition {
+    padding: 12px 14px;
+    font-size: 13px;
   }
 }
 
+/* ============================================
+   📱 MOBILE SMALL
+   ============================================ */
 @media screen and (max-width: 480px) {
   .md-content__inner {
     padding: 10px !important;
   }
 
   .md-typeset h1 {
-    font-size: 1.25rem !important;
+    font-size: 1.3rem !important;
   }
 
   .md-typeset h2 {
-    font-size: 1.05rem !important;
+    font-size: 1.15rem !important;
   }
 
   .md-typeset h3 {
@@ -652,11 +771,16 @@ code {
   }
 
   .calculator {
-    padding: 12px;
+    padding: 14px;
   }
 
   .product-card {
-    padding: 14px;
+    padding: 16px;
+  }
+
+  .calc-formula {
+    font-size: 12px;
+    padding: 10px;
   }
 }
 
