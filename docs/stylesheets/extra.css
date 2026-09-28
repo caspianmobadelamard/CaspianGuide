@@ -1,19 +1,14 @@
 /* ============================================
-   CaspianGuide — Navy Gold Theme v3.1
-   Mobile-Safe Final Edition
+   CaspianGuide — Navy Gold Theme v4
+   Mobile-Safe + PWA Ready
    ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ============================================
-   متغیرهای رنگی
-   ============================================ */
 :root {
   --bg-deep: #142440;
   --bg-main: #1a2e4d;
-  --bg-mid: #1f3557;
   --bg-card: #243c62;
   --bg-card-hover: #2a4874;
-  --bg-elevated: #2f4d7e;
   --bg-sidebar: rgba(45,80,140,0.5);
   --bg-sidebar-hover: rgba(60,100,170,0.7);
   --bg-content: rgba(26,46,77,0.92);
@@ -68,13 +63,9 @@
   60% { transform: scale(1.3); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
 }
-@keyframes activeGoldGlow {
-  0%, 100% { box-shadow: 0 0 15px rgba(245,185,66,0.20), inset 0 0 15px rgba(245,185,66,0.04); }
-  50% { box-shadow: 0 0 25px rgba(245,185,66,0.35), inset 0 0 20px rgba(245,185,66,0.08); }
-}
 
 /* ============================================
-   Body Background — بدون انیمیشن سنگین
+   Body
    ============================================ */
 body {
   background: var(--bg-deep) !important;
@@ -91,12 +82,8 @@ body {
 
 .md-container, .md-main, .md-content {
   background: transparent !important;
-  position: relative;
 }
 
-/* ============================================
-   محتوای اصلی
-   ============================================ */
 .md-content__inner {
   background: var(--bg-content);
   border-radius: 16px;
@@ -130,11 +117,6 @@ body {
 
 .md-header__button {
   color: var(--gold) !important;
-  transition: all 0.3s;
-}
-
-.md-header__button:hover {
-  color: var(--gold-light) !important;
 }
 
 .md-header__option .md-icon,
@@ -154,7 +136,6 @@ body {
 .md-tabs__link {
   color: var(--text-dim) !important;
   font-weight: 600;
-  transition: all 0.3s;
 }
 
 .md-tabs__link:hover {
@@ -174,7 +155,7 @@ body {
 }
 
 /* ============================================
-   Sidebar — منوی اصلی
+   Sidebar
    ============================================ */
 .md-sidebar {
   background: var(--bg-sidebar) !important;
@@ -202,7 +183,6 @@ body {
   border-bottom: none !important;
 }
 
-/* آیکون‌های منو */
 .md-nav__icon {
   color: var(--gold) !important;
   width: 16px;
@@ -213,7 +193,6 @@ body {
 .md-nav__icon svg {
   fill: var(--gold) !important;
   color: var(--gold) !important;
-  pointer-events: none;
 }
 
 .md-nav__icon:hover,
@@ -239,7 +218,6 @@ body {
   color: var(--gold) !important;
 }
 
-/* لینک‌های منو */
 .md-nav__link {
   border-radius: 8px;
   padding: 10px 12px !important;
@@ -280,7 +258,7 @@ body {
 }
 
 /* ============================================
-   TOC — فهرست موضوعات
+   TOC
    ============================================ */
 .md-sidebar--secondary {
   background: linear-gradient(135deg, rgba(36,60,98,0.95), rgba(26,46,77,0.95)) !important;
@@ -337,16 +315,6 @@ body {
   padding-right: 14px !important;
 }
 
-.md-sidebar--secondary .md-nav__link--active::before {
-  content: '▸';
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gold);
-  font-size: 13px;
-}
-
 .md-nav--secondary .md-nav__icon {
   display: none;
 }
@@ -400,7 +368,6 @@ body {
 .md-typeset a {
   color: var(--gold);
   border-bottom: 1px solid transparent;
-  transition: all 0.2s;
 }
 
 .md-typeset a:hover {
@@ -488,7 +455,6 @@ body {
   font-weight: 800;
   color: var(--text-main);
   margin-bottom: 6px;
-  transition: color 0.3s;
 }
 
 .product-card:hover h3 {
@@ -519,7 +485,6 @@ body {
   font-size: 11px;
   color: var(--gold);
   font-weight: 700;
-  transition: all 0.3s;
 }
 
 .product-card:hover .badge {
@@ -707,7 +672,6 @@ body {
 
 .md-clipboard {
   color: var(--gold) !important;
-  transition: all 0.3s;
 }
 
 .md-clipboard:hover {
@@ -757,7 +721,6 @@ body {
   font-family: inherit;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
 .product-filter select:focus {
@@ -818,7 +781,6 @@ body {
 
 .md-footer__link {
   color: var(--gold) !important;
-  transition: all 0.3s;
 }
 
 .md-footer__link:hover {
@@ -833,13 +795,11 @@ body {
   color: var(--gold) !important;
   border: 1px solid var(--border-soft);
   box-shadow: 0 0 15px rgba(245,185,66,0.3);
-  transition: all 0.3s;
 }
 
 .md-top:hover {
   background: var(--gradient-royal) !important;
   color: #142440 !important;
-  transform: translateY(-3px);
 }
 
 /* ============================================
@@ -850,9 +810,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--gradient-royal);
   border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gradient-primary);
 }
 
 /* ============================================
@@ -918,11 +875,6 @@ code {
 .md-typeset .tabbed-labels > label {
   color: var(--text-dim);
   font-weight: 600;
-  transition: all 0.3s;
-}
-
-.md-typeset .tabbed-labels > label:hover {
-  color: var(--gold);
 }
 
 .md-typeset .tabbed-labels > label.tabbed-labels--active,
@@ -938,7 +890,6 @@ code {
 .md-typeset .headerlink {
   color: var(--gold);
   opacity: 0.3;
-  transition: all 0.3s;
 }
 
 .md-typeset .headerlink:hover {
@@ -960,16 +911,12 @@ code {
 }
 
 /* ============================================
-   z-index Fix
+   z-index
    ============================================ */
 .md-content { position: relative; z-index: 3; }
 .md-sidebar { position: relative; z-index: 5; }
 .md-header { z-index: 10; }
 .md-tabs { z-index: 9; }
-
-.md-content *, .md-sidebar *, .md-nav * {
-  pointer-events: auto;
-}
 
 /* ============================================
    Desktop Layout
@@ -993,10 +940,9 @@ code {
 }
 
 /* ============================================
-   Mobile — ساده‌سازی کامل
+   Mobile
    ============================================ */
 @media screen and (max-width: 76.1875em) {
-  /* حذف پس‌زمینه سنگین */
   .md-sidebar--primary {
     background: rgba(20,36,64,0.98) !important;
   }
@@ -1021,7 +967,6 @@ code {
   .md-typeset h2 { font-size: 1.3rem; }
   .md-nav__link--active::after { left: 10px; font-size: 12px; }
 
-  /* حذف انیمیشن‌های سنگین */
   .product-card {
     animation: none !important;
     transition: none !important;
@@ -1040,7 +985,6 @@ code {
     animation: none !important;
   }
 
-  /* حذف backdrop-filter (سنگین روی موبایل) */
   .md-header,
   .md-tabs,
   .md-sidebar,
@@ -1052,9 +996,6 @@ code {
   }
 }
 
-/* ============================================
-   Mobile Small
-   ============================================ */
 @media screen and (max-width: 480px) {
   .md-content__inner {
     padding: 14px !important;
@@ -1079,8 +1020,6 @@ code {
     padding: 8px 10px !important;
     font-size: 12.5px;
   }
-
-  .filter-reset { padding: 10px; font-size: 13px; }
 }
 
 /* ============================================

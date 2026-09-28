@@ -8,56 +8,36 @@
   "scope": "/CaspianGuide/",
   "id": "/CaspianGuide/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui", "browser"],
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait-primary",
-  "theme_color": "#0d9488",
-  "background_color": "#f5f1ea",
-  "categories": ["business", "education", "productivity", "utilities"],
+  "theme_color": "#f5b942",
+  "background_color": "#142440",
+  "categories": ["business", "education", "productivity"],
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "assets/icon-192.png",
+      "src": "/CaspianGuide/assets/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/icon-192.png",
+      "src": "/CaspianGuide/assets/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "assets/icon-512.png",
+      "src": "/CaspianGuide/assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/icon-512.png",
+      "src": "/CaspianGuide/assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "ماشین‌حساب مهندسی",
-      "short_name": "ماشین‌حساب",
-      "url": "/CaspianGuide/engineering/calculations/calculator/",
-      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "فیلتر محصولات",
-      "short_name": "محصولات",
-      "url": "/CaspianGuide/sales/products-filter/",
-      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "واژه‌نامه دوزبانه",
-      "short_name": "واژه‌نامه",
-      "url": "/CaspianGuide/sales/glossary-sales/",
-      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }
